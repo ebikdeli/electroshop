@@ -3,11 +3,20 @@ from django.db import models
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
+from taggit.managers import TaggableManager
+
+app_name = 'mainshop'
 
 
-class Product(Page):
-    name = models.TextField(max_length=20)
-    description = RichTextField(max_length=250, blank=True)
+class Category(models.Model):
+    name = models.CharField(max_length=20)
+    slug = models.SlugField()
+    tags = TaggableManager()
 
-    content_panels = Page.content_panels + [FieldPanel('description', heading='توصیف محصول'),
-                                            FieldPanel('name', 'نام محصول')]
+
+class Brand(models.Model):
+    name =
+
+class Product(models.Model):
+    name = models.CharField(max_length=30)
+    pass
