@@ -11,105 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3393aaa4-20e5-444c-8568-252a65212788" name="Default Changelist" comment="Base Models created">
-      <change afterPath="$PROJECT_DIR$/cart/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0002_auto_20210602_1352.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0003_auto_20210602_1922.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0004_auto_20210602_1922.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profiles/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendmail/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/migrations/0002_auto_20210602_1425.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop/wagtail_hooks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social_login/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_activity/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0002_blogpage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0003_blogpagegalleryimage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0004_auto_20210505_2341.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0005_blogtagindexpage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/0006_auto_20210506_0057.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_index_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_tag_index_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electroshop/settings/celery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sendmail/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electroshop/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/electroshop/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electroshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_create_homepage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0003_homepage_body.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainshop/wagtail_hooks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/electroshop/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/settings/dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social_login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/social_login/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -147,7 +58,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="pyconsole" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myIpythonEnabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -254,7 +168,18 @@
       <workItem from="1622642301128" duration="5968000" />
       <workItem from="1622649010417" duration="3142000" />
       <workItem from="1622658165317" duration="4393000" />
-      <workItem from="1622694026323" duration="1123000" />
+      <workItem from="1622694026323" duration="3223000" />
+      <workItem from="1622724649237" duration="11551000" />
+      <workItem from="1622752661199" duration="59000" />
+      <workItem from="1622756640656" duration="2785000" />
+      <workItem from="1622792970153" duration="8474000" />
+      <workItem from="1622813755297" duration="3003000" />
+      <workItem from="1622831884438" duration="216000" />
+      <workItem from="1622832182562" duration="307000" />
+      <workItem from="1622840107940" duration="2012000" />
+      <workItem from="1622876246886" duration="354000" />
+      <workItem from="1622877419091" duration="13489000" />
+      <workItem from="1622892863944" duration="2097000" />
     </task>
     <task id="LOCAL-00001" summary="wagtail initialized">
       <created>1620155901871</created>
@@ -284,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620673540512</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="shop, cart and social-login added">
+      <created>1622697381121</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622697381121</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +239,8 @@
     <MESSAGE value="wagtail initialized" />
     <MESSAGE value="django-countries added" />
     <MESSAGE value="Base Models created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Base Models created" />
+    <MESSAGE value="shop, cart and social-login added" />
+    <option name="LAST_COMMIT_MESSAGE" value="shop, cart and social-login added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="219" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620150524244">
@@ -318,26 +251,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="495" y="108" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622649186391" />
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1622662588444">
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1622894975562">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622662588444" />
-    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1622662588444">
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622894975562" />
+    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1622894975554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622662588444" />
-    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1622662588444">
+    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622894975554" />
+    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1622894975554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622662588444" />
-    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1622662588444">
+    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622894975554" />
+    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1622894975554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622662588444" />
-    <state x="160" y="0" key="SettingsEditor" timestamp="1621258516984">
+    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622894975554" />
+    <state x="160" y="0" key="SettingsEditor" timestamp="1622877524903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="160" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621258516984" />
+    <state x="160" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622877524903" />
     <state width="750" height="535" key="javadoc.popup" timestamp="1621967007790">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

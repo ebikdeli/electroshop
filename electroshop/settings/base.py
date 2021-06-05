@@ -163,6 +163,23 @@ LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
+# Email settings
+
+EMAIL_YAHOO_HOST = 'smtp.mail.yahoo.com'
+EMAIL_YAHOO_PASSWORD = 'yizfphuxdgurprwj'
+EMAIL_GMAIL_HOST = 'smtp.gmail.com'
+EMAIL_GMAIL_PASSWORD1 = 'edxxyxtxztagousa'
+EMAIL_GMAIL_PASSWORD2 = 'lcvnujlaamtwcest'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = EMAIL_GMAIL_HOST
+EMAIL_HOST_USER = 'ebikdeli@gmail.com'
+EMAIL_HOST_PASSWORD = EMAIL_GMAIL_PASSWORD1    # past the key or password app here
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'ebikdeli@gmail.com'
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "electroshop"
