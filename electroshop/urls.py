@@ -16,7 +16,11 @@ urlpatterns = [
     path('search/', search_views.search, name='search'),
     path('api/', include('salesman.urls')),
     path('social-login/', include('social_login.urls')),
-    path('', include(wagtail_urls)),
+    path('cart/', include('cart.urls')),
+    path('profile/', include('profile.urls')),
+    # path('order/', include('order.urls')),
+    path('wagtail/', include(wagtail_urls)),
+    path('', include('shop.urls'))
 ]
 
 if settings.DEBUG:

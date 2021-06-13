@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from wagtail.core.fields import RichTextField
 
@@ -54,6 +55,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     in_stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=False)
+    picture = models.ImageField(blank=True)
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
 
@@ -62,3 +64,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('shop:product_detail', kwargs={'product_id': self.product_id})

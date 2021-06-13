@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ request.user.username }}</title>
+</head>
+<body>
+    {% block context %}
+        {% if cart.items %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            {% for item_id, number in cart.items.items %}
+                {% for product_obj in cart.product.all %}
+                    {% if item_id == product_obj.product_id %}
+                        <h3>{{ product_obj.brand }} {{ product_obj.name }} </h3> <p>unit price: {{ product_obj.price }}</p>
+                        <img src="{{ product_obj.picture.url }}">
+
+                        <form action="{% url 'cart:cart_change_item' username=request.user.username item_id=item_id %}" method="post">
+                            {% csrf_token %}
+                            <label>numbers: </label>
+                            <input type="number" name="quantity" min="1" max="10" value="{{ number }}">
+                            <input type="submit" value="change">
+                        </form>
+
+                        <p><a href="{% url 'cart:cart_remove_item' item_id=item_id username=request.user.username %}">delete product</a></p>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <h2>Total items in the cart: {{ cart.total_number }}</h2>
+            <h2>Total price: {{ cart.total_price }}</h2>
+{% comment %}
+            <p><a href="{% url 'checkout:checkout' %}">payment</a></p>
+{% endcomment %}
+            <h2><a href="{% url 'cart:cart_clean' username=request.user.username %}">Clean Cart!</a></h2>
+        {% else %}
+            <h2>سبد خالی است</h2>
+        {% endif %}
+    {% endblock context %}
+</body>
+</html>

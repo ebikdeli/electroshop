@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+{% load wagtailadmin_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All products</title>
+</head>
+<body>
+    {% block content %}
+        <h1>محصولات موجود در فروشگاه:</h1>
+        {% for product in products %}
+            <h2>نام محصول: {{ product.brand.name }} {{ product.name }}</h2>
+            <p><img src="{{ product.picture.url }}" alt="تصویر محصول"></p>
+            <h3>قیمت محصول: {{ product.price }} تومان </h3>
+            <h3><a href="{{ product.get_absolute_url }}">جزئیات محصول</a></h3>
+        {% endfor %}
+    {% endblock content %}
+</body>
+</html>

@@ -1,4 +1,5 @@
 import os
+from django.urls import reverse_lazy
 
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +16,7 @@ INSTALLED_APPS = [
 
     'home',
     'search',
-    'profiles',
+    'profile',
     'shop',
     'order',
     'checkout',
@@ -70,6 +71,9 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR),
             os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'shop', 'templates'),
+            os.path.join(BASE_DIR, 'cart', 'templates'),
+            os.path.join(BASE_DIR, 'profile', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,6 +132,8 @@ STATICFILES_FINDERS = [
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR),
+    os.path.join(BASE_DIR, 'shop', 'static'),
+    os.path.join(BASE_DIR, 'cart', 'static'),
 ]
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -159,9 +165,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '501246578971-ek7sfvok7qeirn1og4lnoufgobgasvn9.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'tgv7HrR7TPBkNDFnjFrAh90u'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
+LOGIN_REDIRECT_URL = reverse_lazy('shop:index')
 LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = reverse_lazy('shop:index')
 
 # Email settings
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'shop/static/css/index.css' %}">
+    <title>Welcome to Electroshop</title>
+</head>
+<body>
+    {% block content %}
+        <h1>به فروشگاه الکتروشاپ خوش آمدید</h1>
+        <h2>: برای مشاهده کل محصولات <a href="{% url 'shop:product_list' %}">اینجا کلیک کنید</a></h2>
+        {% if not request.user.username %}
+            <h2><a href="{% url 'profile:create_user' %}">ثبت نام</a></h2>
+            <h2><a href="{% url 'profile:profile_login' %}">ورود</a></h2>
+        {% else %}
+            <h2><a href="{% url 'cart:cart_view' username=request.user.username %}">سبد خرید مشتری</a></h2>
+            <h3><a href="{% url 'logout' %}">خروج از حساب کاربری</a></h3>
+        {% endif %}
+    {% endblock content %}
+</body>
+</html>

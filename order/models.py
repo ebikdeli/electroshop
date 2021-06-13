@@ -1,5 +1,5 @@
 from django.db import models
-from profiles.models import Profile
+from profile.models import Profile
 from cart.models import Cart
 
 

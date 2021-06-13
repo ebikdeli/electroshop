@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <table>
+        {{ user_auth_form.as_table }}
+        </table>
+        <input type="submit" value="ok">
+    </form>
+    <h2><a href="{% url 'login' %}">ورود با gmail</a></h2>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ user_create_form }}
+        {{ profile_create_form }}
+        <input type="submit" value="Send">
+    </form>
+    <h2><a href="{% url 'login' %}">ثبت نام با سرویس گوگل و لینکدین</a></h2>
+</body>
+</html>

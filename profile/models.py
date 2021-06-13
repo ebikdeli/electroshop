@@ -18,15 +18,15 @@ def discount_model_validator(discount):  # validate 'discount_percent' field bef
 
 
 def customer_directory_path(instance, filename):    # To save users' logo in custom path
-    if not instance.email:
+    if not instance.user.email:
         return 'customer_{0}/{1}'.format(instance.user.username, filename)
-    return '{0}/{1}'.format(instance.domain, filename)
+    return '{0}/{1}'.format(instance.user.email, filename)
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(dev.AUTH_USER_MODEL,
-                             related_name='profile',
-                             on_delete=models.CASCADE)
+    user = models.OneToOneField(dev.AUTH_USER_MODEL,
+                                related_name='profile',
+                                on_delete=models.CASCADE)
     phone = models.CharField(max_length=12)
     address = models.TextField(blank=True)
     score = models.PositiveIntegerField(default=0)

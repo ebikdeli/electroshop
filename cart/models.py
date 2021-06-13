@@ -1,5 +1,5 @@
 from django.db import models
-from profiles.models import Profile
+from profile.models import Profile
 from shop.models import Product
 
 
@@ -11,8 +11,8 @@ class Cart(models.Model):
                                      related_name='product_cart',
                                      blank=True)
     items = models.JSONField(blank=True, default=dict)  # per documents
-    total_price = models.PositiveIntegerField(blank=True, null=True)
-    total_number = models.PositiveIntegerField(blank=True, null=True)
+    total_price = models.PositiveIntegerField(default=0)
+    total_number = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.profile.user.username + '_cart'
@@ -24,11 +24,17 @@ class Cart(models.Model):
         total_number = 0
         product_list = []
 
-        for product_id, number in self.items.items():
-            product_list.append(Product.objects.get(product_id=product_id))
-            total_price += product_list[-1].price * number
-            total_number += number
+        if self.items:
+            for product_id, number in self.items.items():
+                product_list.append(Product.objects.get(product_id=product_id))
+                total_price += product_list[-1].price * number
+                total_number += number
 
-        [self.product.add(prod) for prod in product_list]
-        self.total_price = total_price
-        self.total_number = total_number
+            [self.product.add(prod) for prod in product_list]
+            self.total_price = total_price
+            self.total_number = total_number
+        else:
+            self.product.set('')
+            self.total_number = 0
+            self.total_price = 0
+        super().save(*args, **kwargs)
