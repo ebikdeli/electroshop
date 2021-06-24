@@ -7,7 +7,8 @@ def add(x, y):
     return x + y
 
 
-@app.task(name='send mail')
-def sending_mail(subject, message, from_email, recipients):
-    sent = send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipients)
+@app.task(name='sending checkout mail to customer')
+def send_checkout_mail(subject, message, from_email, recipients, html_message=None):
+    sent = send_mail(subject=subject, message=message, from_email=from_email,
+                     recipient_list=recipients, html_message=html_message)
     return sent

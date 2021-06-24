@@ -10,26 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3393aaa4-20e5-444c-8568-252a65212788" name="Default Changelist" comment="Base Models created">
-      <change afterPath="$PROJECT_DIR$/cart/migrations/0009_cart_order_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/templates/checkout_checkout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/templates/checkout_success_pay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/templatetags/multiple.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkout/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0002_remove_order_cart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0003_auto_20210618_1752.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/0004_auto_20210618_1754.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile/serializers.py" afterDir="false" />
+    <list default="true" id="3393aaa4-20e5-444c-8568-252a65212788" name="Default Changelist" comment="order created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/templates/cart_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart_view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkout/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electroshop/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electroshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electroshop/settings/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/settings/celery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendmail/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendmail/tasks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +209,11 @@
       <workItem from="1624206224961" duration="36000" />
       <workItem from="1624349293104" duration="1604000" />
       <workItem from="1624382902330" duration="118000" />
+      <workItem from="1624428844045" duration="1559000" />
+      <workItem from="1624473879958" duration="629000" />
+      <workItem from="1624513455069" duration="11972000" />
+      <workItem from="1624528314051" duration="478000" />
+      <workItem from="1624536882924" duration="2084000" />
     </task>
     <task id="LOCAL-00001" summary="wagtail initialized">
       <created>1620155901871</created>
@@ -273,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623614053387</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="order created">
+      <created>1624428909111</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1624428909111</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +297,8 @@
     <MESSAGE value="shop, cart and social-login added" />
     <MESSAGE value="celery and sendmail setup completed" />
     <MESSAGE value="cart and shop just created" />
-    <option name="LAST_COMMIT_MESSAGE" value="cart and shop just created" />
+    <MESSAGE value="order created" />
+    <option name="LAST_COMMIT_MESSAGE" value="order created" />
   </component>
   <component name="WindowStateProjectService">
     <state x="261" y="0" key="#Intentions" timestamp="1624349660796">
@@ -318,30 +317,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1623583596000" />
-    <state x="495" y="108" key="FileChooserDialogImpl" timestamp="1624382946336">
+    <state x="495" y="108" key="FileChooserDialogImpl" timestamp="1624429145684">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="495" y="108" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1624382946336" />
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1624350906752">
+    <state x="495" y="108" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1624429145684" />
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1624538980743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624350906752" />
-    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1624350906752">
+    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
+    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1624538980743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624350906752" />
-    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1624350906752">
+    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
+    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1624538980743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624350906752" />
-    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1624350906752">
+    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
+    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1624538980743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624350906752" />
+    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
     <state x="160" y="0" key="SettingsEditor" timestamp="1622877524903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="160" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622877524903" />
+    <state x="543" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624428884004">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="543" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1624428884004" />
     <state width="750" height="535" key="javadoc.popup" timestamp="1621967007790">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

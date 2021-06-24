@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
-from django.urls import reverse_lazy
+from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from profile.models import Profile
 from cart.models import Cart
 from order.models import Order
+from sendmail.tasks import send_checkout_mail
 import requests
 import json
 
@@ -77,7 +78,7 @@ def verify(request, username):
     if r.status_code == 200:
         order.is_Paid = True
         order.save()
-        cart.items = {}
+        cart.items = dict()
         cart.save()
         return redirect(to='checkout:success_pay', username=username)
     return HttpResponse('پرداخت موفقیت آمیز نبود')
@@ -86,5 +87,23 @@ def verify(request, username):
 def success_pay(request, username):
     profile = User.objects.get(username=username).profile
     order = profile.profile_orders.last()
+    html_message = f'Dear customer <strong>{profile.user.username}</strong>, this is your checkout. Save this email!<br>' \
+                   f'<strong>Order id: {order.order_id}</strong><br><strong>Price: {order.total_price}</strong> toman<br>' \
+                   f'<strong>Total Items: {order.total_items}</strong> adad<br>' \
+                   f'<bold>Items:</bold><br>'
+    for item_id, numbers in order.items.items():
+        for item in order.products.all():
+            if item_id == item.product_id:
+                html_message += f'{item.brand.name} {item.name}: {numbers} addad ' \
+                                f'{item.price * numbers} tomans'
+    html_message += '<h2>بابت اعتماد به ما از شما متشکریم</h2>'
+    result = send_checkout_mail.delay(subject='ارسال فاکتور',
+                                      message='این فاکتور به منزله پرداخت موفقیت آمیز است.',
+                                      from_email=settings.EMAIL_HOST_USER,
+                                      recipients=[profile.user.email, 'arash.pouya.c@gmail.com'],
+                                      html_message=html_message,
+                                      )
+    if result == 1:
+        print('email sent!')
     context = {'profile': profile, 'order': order}
     return render(request, 'checkout_success_pay.html', context)
