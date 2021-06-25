@@ -74,6 +74,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'shop', 'templates'),
             os.path.join(BASE_DIR, 'cart', 'templates'),
             os.path.join(BASE_DIR, 'profile', 'templates'),
+            os.path.join(BASE_DIR, 'checkout', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -134,6 +135,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR),
     os.path.join(BASE_DIR, 'shop', 'static'),
     os.path.join(BASE_DIR, 'cart', 'static'),
+    os.path.join(BASE_DIR, 'checkout', 'static'),
 ]
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -193,3 +195,12 @@ WAGTAIL_SITE_NAME = "electroshop"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Restful_api
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

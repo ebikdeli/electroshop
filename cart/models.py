@@ -13,6 +13,7 @@ class Cart(models.Model):
     items = models.JSONField(blank=True, default=dict)  # per documents
     total_price = models.PositiveIntegerField(default=0)
     total_number = models.PositiveIntegerField(default=0)
+    order_id = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return self.profile.user.username + '_cart'
@@ -34,7 +35,7 @@ class Cart(models.Model):
             self.total_price = total_price
             self.total_number = total_number
         else:
-            self.product.set('')
+            self.product.set([])
             self.total_number = 0
             self.total_price = 0
         super().save(*args, **kwargs)

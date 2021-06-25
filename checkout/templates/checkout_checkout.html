@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+{% load multiple %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ profile.user.username }} purchase checkout</title>
+</head>
+<body>
+    {% block content %}
+        {% if cart.items %}
+        <h1>سفارش خود را تایید فرمایید:</h1>
+        {% for product in cart.product.all %}
+            {% for product_id, numbers in cart.items.items %}
+                {% if product.product_id == product_id %}
+                    <h3>نام محصول: {{ product.brand.name }} {{ product.name }}</h3>
+                    <h3>تصویر محصول:</h3>
+                    <p><img src="{{ product.picture.url }}" alt="تصویر محصول"></p>
+                    <h3>تعداد سفارش داده شده: {{ numbers }} واحد </h3>
+                    <h3>قیمت هر واحد: {{ product.price }} تومان </h3>
+                    <h3>قیمت کل {{ numbers }} واحد: {{ product.price|multiple:numbers }} تومان </h3>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+            <h2>مبلغ کل سفارش: {{ cart.total_price }} تومان </h2>
+            <h2><a href="{% url 'checkout:pay' username=profile.user.username %}">پرداخت</a></h2>
+        {% else %}
+            <h1>محصولی سفارش نداده اید</h1>
+        {% endif %}
+    {% endblock content %}
+</body>
+</html>
