@@ -30,9 +30,9 @@
             {% endfor %}
             <h2>Total items in the cart: {{ cart.total_number }}</h2>
             <h2>Total price: {{ cart.total_price }}</h2>
-{% comment %}
-            <p><a href="{% url 'checkout:checkout' %}">payment</a></p>
-{% endcomment %}
+
+            <h1><a href="{% url 'checkout:checkout' username=request.user.username %}">payment</a></h1>
+
             <h2><a href="{% url 'cart:cart_clean' username=request.user.username %}">Clean Cart!</a></h2>
         {% else %}
             <h2>سبد خالی است</h2>

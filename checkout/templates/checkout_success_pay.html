@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+{% load multiple %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ profile.user.username }} factor</title>
+</head>
+<body>
+    {% block content %}
+        <h1>فاکتور شما به این صورت است:</h1>
+        <h2>نام مشتری: {{ profile.user.username }}</h2>
+        <h2>شماره تماس مشتری: {{ profile.phone }}</h2>
+        <h1>لیست کالاهای سفارش داده شده:</h1>
+        {% for product in order.product.all %}
+            {% for product_id, numbers in order.items.items %}
+                {% if product.product_id == product_id %}
+                    <h3>نام محصول: {{ product.brand.name }} {{ product.name }}</h3>
+                    <h3>تصویر محصول:</h3>
+                    <p><img src="{{ product.picture.url }}" alt="تصویر محصول"></p>
+                    <h3>تعداد سفارش داده شده: {{ numbers }} واحد </h3>
+                    <h3>قیمت هر واحد: {{ product.price }} تومان </h3>
+                    <h3>قیمت کل {{ numbers }} واحد: {{ product.price|multiple:numbers }} تومان </h3>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <h2>شماره سفارش: {{ order.order_id }}</h2>
+        <h2>قیمت کل: {{ order.total_price }} تومان </h2>
+        <h2>تعداد کل کالاها: {{ order.total_items }} عدد </h2>
+        <h1><a href="{% url 'shop:index' %}">بازگشت به صفحه اصلی</a></h1>
+    {% endblock %}
+</body>
+</html>
