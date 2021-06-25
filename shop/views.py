@@ -14,7 +14,7 @@ def index(request):
     except AttributeError:
         pass
 
-    return render(request, 'shop_index.html')
+    return render(request, 'index.html')
 
 
 class ProductView(ListView):
