@@ -25,8 +25,8 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('profile/', include('profile.urls')),
     path('checkout/', include('checkout.urls')),
-    # path('order/', include('order.urls')),
     path('wagtail/', include(wagtail_urls)),
+    path('tinymce/', include('tinymce.urls')),
     path('', include('shop.urls'))
 ]
 

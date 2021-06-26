@@ -6,6 +6,8 @@ from shop.forms import ProductQuantity
 
 
 def index(request):
+    from user_activity.forms import Comment
+    comment_form = Comment()
     try:
         request.user.profile
 
@@ -14,7 +16,7 @@ def index(request):
     except AttributeError:
         pass
 
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'comment': comment_form})
 
 
 class ProductView(ListView):

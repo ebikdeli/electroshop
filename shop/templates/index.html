@@ -12,7 +12,7 @@
     <link href="https://v1.fontapi.ir/css/ShabnamFD" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/uikit-rtl.min.css' %}" />
-
+    {{ comment.media }}
       {% block head %}
       {% endblock head %}
 
@@ -32,7 +32,6 @@
                 <button class="button" type="button">دسته بندی</button>
                 <div class="uk-width-large" uk-dropdown>
                   <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
-
                     <div>
                       <ul class="uk-nav uk-dropdown-nav uk-text-right">
                         <li class="uk-nav-header">مادر برد</li>
@@ -84,6 +83,11 @@
         </div>
       </div>
     </section>
+
+                          <form>
+                          {{ comment }}
+                      </form>
+
 
     {% block scripts %}
         <script src="scripts/script.js"></script>
