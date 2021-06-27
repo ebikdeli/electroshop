@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'sendmail',
     'cart',
     'social_login',
+    'user_activity',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
