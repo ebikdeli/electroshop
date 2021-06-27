@@ -58,6 +58,9 @@ class Product(models.Model):
     picture = models.ImageField(blank=True)
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
+    tag = TaggableManager(blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['name', 'available']
@@ -67,3 +70,14 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', kwargs={'product_id': self.product_id})
+
+
+class ProductImages(models.Model):
+    product = models.ForeignKey(Product,
+                                on_delete=models.CASCADE,
+                                related_name='product_images')
+    image = models.ImageField(blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.product.brand.name}_{self.product.name}_image{self.id}'
