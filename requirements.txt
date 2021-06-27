@@ -15,8 +15,11 @@ cryptography==3.4.7
 defusedxml==0.7.1
 Django==3.1.9
 django-countries==7.2
+django-filebrowser==3.14.1
 django-filter==2.4.0
+django-grappelli==2.15.1
 django-modelcluster==5.1
+django-quill-editor==0.1.22
 django-salesman==1.0.1
 django-taggit==1.4.0
 django-tinymce==3.3.0

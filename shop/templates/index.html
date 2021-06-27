@@ -12,7 +12,6 @@
     <link href="https://v1.fontapi.ir/css/ShabnamFD" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/uikit-rtl.min.css' %}" />
-    {{ comment.media }}
       {% block head %}
       {% endblock head %}
 
@@ -68,6 +67,7 @@
                   <br />
                   <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
                 </div>
+
                 <!-- <div class="card-footer">
                   <div class="media">
                     <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
@@ -83,11 +83,6 @@
         </div>
       </div>
     </section>
-
-                          <form>
-                          {{ comment }}
-                      </form>
-
 
     {% block scripts %}
         <script src="scripts/script.js"></script>

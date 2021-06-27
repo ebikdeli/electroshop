@@ -14,6 +14,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'tinymce',
+    'django_quill',
+    "grappelli",
+    "filebrowser",
 
     'home',
     'search',

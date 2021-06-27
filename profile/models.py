@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from django.contrib.contenttypes.fields import GenericRelation
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from electroshop.settings import dev
+from user_activity.models import Comment
 
 
 def discount_model_validator(discount):  # validate 'discount_percent' field before saved into database
@@ -39,13 +41,16 @@ class Profile(models.Model):
     slug = models.SlugField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    comment = GenericRelation(to=Comment)
     # likes
 
     class Meta:
         ordering = ['updated']
 
     def __str__(self):
-        return self.user.username + '_profile'
+        # return self.user.username + '_profile'
+        return f'{self.user.username}_profile'
 
     def save(self, *args, **kwargs):
         if not self.slug:
