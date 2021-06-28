@@ -1,7 +1,12 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.contenttypes.fields import GenericRelation
 
 from wagtail.core.fields import RichTextField
+
+from profile.models import discount_model_validator
+from user_activity.models import Comment
 
 from django_countries.fields import CountryField
 from taggit.managers import TaggableManager
@@ -17,6 +22,10 @@ def founded_choice():
     for year in range(min_year, max_year+1):
         year_list.append((str(year), str(year)))
     return year_list
+
+
+def product_directory_path(instance, filename):    # To save product logo in custom path
+    return f'{instance.brand.name}_{instance.name}_{instance.id}/{filename}'
 
 
 class Category(models.Model):
@@ -55,12 +64,19 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     in_stock = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=False)
-    picture = models.ImageField(blank=True)
+    discount_value = models.PositiveIntegerField(default=0)
+    discount_percent = models.FloatField(validators=[MaxValueValidator(100),
+                                                     MinValueValidator(0),
+                                                     discount_model_validator],
+                                         default=0)
+    picture = models.ImageField(blank=True, upload_to=product_directory_path)
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
     tag = TaggableManager(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    comment = GenericRelation(Comment)
 
     class Meta:
         ordering = ['name', 'available']

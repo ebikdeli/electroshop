@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
-from django.contrib.contenttypes.fields import GenericRelation
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from electroshop.settings import dev
@@ -21,8 +20,8 @@ def discount_model_validator(discount):  # validate 'discount_percent' field bef
 
 def customer_directory_path(instance, filename):    # To save users' logo in custom path
     if not instance.user.email:
-        return 'customer_{0}/{1}'.format(instance.user.username, filename)
-    return '{0}/{1}'.format(instance.user.email, filename)
+        return f'customer_{instance.user.username}/{filename}'
+    return f'{instance.user.email}/{filename}'
 
 
 class Profile(models.Model):
@@ -34,15 +33,14 @@ class Profile(models.Model):
     score = models.PositiveIntegerField(default=0)
     discount_value = models.PositiveIntegerField(default=0)
     discount_percent = models.FloatField(validators=[MaxValueValidator(100),
-                                                     MinValueValidator(0)],
+                                                     MinValueValidator(0),
+                                                     discount_model_validator],
                                          default=0)
     lifetime_orders_price = models.PositiveIntegerField(default=0)
     picture = models.ImageField(upload_to=customer_directory_path, blank=True)
     slug = models.SlugField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-
-    comment = GenericRelation(to=Comment)
     # likes
 
     class Meta:
