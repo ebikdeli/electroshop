@@ -8,3 +8,5 @@ def cart_context(request):
         return {'cart': cart}
     except Cart.DoesNotExist:
         return {'cart': 'please login to see your cart!'}
+    except AttributeError:
+        return {'cart': 'please login to see your cart!'}

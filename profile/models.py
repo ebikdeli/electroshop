@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from electroshop.settings import dev
-from user_activity.models import Comment
 
 
 def discount_model_validator(discount):  # validate 'discount_percent' field before saved into database
