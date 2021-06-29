@@ -85,6 +85,7 @@ class Product(models.Model):
                                                      MinValueValidator(0),
                                                      discount_model_validator],
                                          default=0)
+    special_offer = models.BooleanField(default=False)
     picture = models.ImageField(blank=True, upload_to=product_directory_path)
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)

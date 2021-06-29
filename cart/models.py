@@ -3,6 +3,12 @@ from profile.models import Profile
 from shop.models import Product
 
 
+def discount_hpercent(value: float) -> float:
+    if value >= 1.0:
+        return value / 100
+    return value
+
+
 class Cart(models.Model):
     profile = models.OneToOneField(to=Profile,
                                    related_name='profile_cart',
@@ -33,10 +39,9 @@ class Cart(models.Model):
                 total_price += product_list[-1].price * number
                 total_number += number
 
-                # 'total_discount' calculates discount only for one item of each product type in the cart
+                # 'total_discount' calculates discount only for one item for each product type in the cart
                 if product_list[-1].discount_percent or product_list[-1].discount_value:
-                    if product_list[-1].discount_percent >= 1.0:
-                        product_list[-1].discount_percent /= 100
+                    product_list[-1].discount_percent = discount_hpercent(product_list[-1].discount_percent)
                     total_discount += product_list[-1].discount_value + (
                             product_list[-1].price * product_list[-1].discount_percent)
 

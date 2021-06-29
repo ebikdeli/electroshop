@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from electroshop.settings import dev
 
 
-def discount_model_validator(discount):  # validate 'discount_percent' field before saved into database
+def discount_model_validator(discount: float) -> float:  # validate 'discount_percent' field before saved into database
     if discount < 0.0:
         raise ValidationError('percent is less than zero')
     if discount > 100.0:
