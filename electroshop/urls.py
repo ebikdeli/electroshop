@@ -24,6 +24,7 @@ urlpatterns = [
     # path('api/', include('salesman.urls')),
     path('social-login/', include('social_login.urls')),
     path('cart/', include('cart.urls')),
+    path('orders/', include('order.urls')),
     path('profile/', include('profile.urls')),
     path('checkout/', include('checkout.urls')),
     path('wagtail/', include(wagtail_urls)),

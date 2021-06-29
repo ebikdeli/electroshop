@@ -19,8 +19,11 @@ class Order(models.Model):
     order_date = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['-order_date']
+
     def __str__(self):
-        return 'order_number: ' + self.order_id
+        return f'{self.profile.user.username}_{self.order_date}_order_id: {self.order_id}'
 
     def save(self, *args, **kwargs):
         if self.is_Paid:
