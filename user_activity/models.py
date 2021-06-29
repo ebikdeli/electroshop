@@ -3,7 +3,7 @@ from profile.models import Profile
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 # from tinymce.models import HTMLField
-# from django_quill.fields import FieldQuill
+# from django_quill.fields import QuillField
 
 
 class Comment(models.Model):
@@ -12,7 +12,7 @@ class Comment(models.Model):
                                 related_name='profile_comments',
                                 null=True)
     # comment = HTMLField()
-    # comment = FieldQuill()
+    # comment = QuillField()
     comment = models.TextField(blank=True, max_length=1500)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
