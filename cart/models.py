@@ -12,6 +12,7 @@ class Cart(models.Model):
                                      blank=True)
     items = models.JSONField(blank=True, default=dict)  # per documents
     total_price = models.PositiveIntegerField(default=0)
+    price_after_discount = models.PositiveIntegerField(default=0)
     total_number = models.PositiveIntegerField(default=0)
     order_id = models.CharField(max_length=30, blank=True)
 
@@ -23,6 +24,7 @@ class Cart(models.Model):
 
         total_price = 0
         total_number = 0
+        total_discount = 0
         product_list = []
 
         if self.items:
@@ -31,11 +33,24 @@ class Cart(models.Model):
                 total_price += product_list[-1].price * number
                 total_number += number
 
+                # 'total_discount' calculates discount only for one item of each product type in the cart
+                if product_list[-1].discount_percent or product_list[-1].discount_value:
+                    if product_list[-1].discount_percent >= 1.0:
+                        product_list[-1].discount_percent /= 100
+                    total_discount += product_list[-1].discount_value + (
+                            product_list[-1].price * product_list[-1].discount_percent)
+
             [self.product.add(prod) for prod in product_list]
             self.total_price = total_price
             self.total_number = total_number
+            if self.profile.discount_percent or self.profile.discount_value:
+                total_discount += self.profile.discount_value + (
+                    self.total_price * self.profile.discount_percent)
+
+            self.price_after_discount = total_price - total_discount
         else:
             self.product.set([])
             self.total_number = 0
             self.total_price = 0
+            self.price_after_discount = 0
         super().save(*args, **kwargs)

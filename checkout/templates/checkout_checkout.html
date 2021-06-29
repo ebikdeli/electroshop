@@ -24,6 +24,7 @@
         {% endfor %}
             <h2>مبلغ کل سفارش: {{ cart.total_price }} تومان </h2>
             <h2><a href="{% url 'checkout:pay' username=profile.user.username %}">پرداخت</a></h2>
+            <h1>مبلغ پرداختی شما بعد از تخفیف: {{ cart.price_after_discount }} تومان </h1>
         {% else %}
             <h1>محصولی سفارش نداده اید</h1>
         {% endif %}
