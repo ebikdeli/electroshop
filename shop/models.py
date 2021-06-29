@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.contenttypes.fields import GenericRelation
 
@@ -13,6 +14,9 @@ from taggit.managers import TaggableManager
 
 from datetime import datetime
 import uuid
+import os
+
+CATEGORY_DEFAULT_BACKGROUND = os.path.join(settings.BASE_DIR, 'shop', 'static', 'images', 'mainboard.jpg')
 
 
 def founded_choice():
@@ -24,13 +28,23 @@ def founded_choice():
     return year_list
 
 
+def category_directory_path(instance, filename):
+    return f'category_{instance.name}_bg/{filename}'
+
+
+def brand_directory_path(instance, filename):
+    return f'logo_{instance.name}/{filename}'
+
+
 def product_directory_path(instance, filename):    # To save product logo in custom path
     return f'{instance.brand.name}_{instance.name}_{instance.id}/{filename}'
 
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
-    tags = TaggableManager()
+    background_image = models.ImageField(upload_to=category_directory_path,
+                                         default=CATEGORY_DEFAULT_BACKGROUND)
+    tags = TaggableManager(blank=True)
 
     class Meta:
         ordering = ['name']
@@ -42,6 +56,8 @@ class Category(models.Model):
 class Brand(models.Model):
     name = models.CharField(max_length=30)
     country = CountryField(blank=True)
+    logo = models.ImageField(upload_to=brand_directory_path,
+                             blank=True)
     founded = models.CharField(max_length=6, blank=True, choices=founded_choice())
     founder = models.CharField(max_length=10, blank=True)
     tags = TaggableManager(blank=True)

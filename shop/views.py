@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import ListView
 from profile.models import Profile
 from shop.models import Category, Brand, Product
@@ -6,8 +6,11 @@ from shop.forms import ProductQuantity
 
 
 def index(request):
-    from user_activity.forms import Comment
-    comment_form = Comment()
+    try:
+        categories = Category.objects.all()
+    except Category.DoesNotExist:
+        categories = None
+
     try:
         request.user.profile
 
@@ -16,7 +19,7 @@ def index(request):
     except AttributeError:
         pass
 
-    return render(request, 'index.html', {'comment': comment_form})
+    return render(request, 'index.html', {'categories': categories})
 
 
 class ProductView(ListView):

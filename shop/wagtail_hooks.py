@@ -1,5 +1,6 @@
 from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register, ModelAdminGroup
 from shop.models import Category, Brand, Product
+from user_activity.models import Comment
 
 
 class CategoryAdmin(ModelAdmin):
@@ -27,3 +28,12 @@ class ShopGroup(ModelAdminGroup):
 
 
 modeladmin_register(ShopGroup)
+
+
+class CommentAdmin(ModelAdmin):
+    model = Comment
+    menu_label = 'comment'
+    menu_order = 200
+
+
+modeladmin_register(CommentAdmin)
