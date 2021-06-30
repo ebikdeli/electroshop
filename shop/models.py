@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.contenttypes.fields import GenericRelation
 
@@ -42,15 +43,22 @@ def product_directory_path(instance, filename):    # To save product logo in cus
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
+    name_persian = models.CharField(max_length=30, blank=True)
     background_image = models.ImageField(upload_to=category_directory_path,
                                          default=CATEGORY_DEFAULT_BACKGROUND)
     tags = TaggableManager(blank=True)
+    slug = models.SlugField()
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Brand(models.Model):
@@ -61,12 +69,18 @@ class Brand(models.Model):
     founded = models.CharField(max_length=6, blank=True, choices=founded_choice())
     founder = models.CharField(max_length=10, blank=True)
     tags = TaggableManager(blank=True)
+    slug = models.SlugField()
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -90,6 +104,7 @@ class Product(models.Model):
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
     tag = TaggableManager(blank=True)
+    slug = models.SlugField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -100,6 +115,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f'{self.brand.name}_{self.name}')
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', kwargs={'product_id': self.product_id})

@@ -22,13 +22,20 @@ def index(request):
     return render(request, 'index.html', {'categories': categories})
 
 
-def category_detail(request, category_name=None):
-    category = Category.objects.get(name=category_name)
+# def category_detail(request, category_name=None):
+#    category = Category.objects.get(name=category_name)
 
 
-class CateogryView(ListView):
+class CateogryView(DetailView):
     model = Category
     paginate_by = 12
+    context_object_name = 'category'
+    template_name = 'shop_category.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
 class ProductView(ListView):

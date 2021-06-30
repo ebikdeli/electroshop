@@ -43,7 +43,7 @@
                         {% if forloop.counter|modulus:4 %}
                             <ul class="mega-col">
                         {% endif %}
-                            <li><a href="">{{ category.name }}</a></li>
+                            <li><a href="{% url 'shop:category_name' slug=category.slug %}">{{ category.name }}</a></li>
 
 
                   <ul class="mega-col">

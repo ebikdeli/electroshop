@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+    <title>{% block title %}{{ category.name }}_category{% endblock %}</title>
+
+{% block body %}
+      <div class="row">
+        <div class="col-xl-12 col row justify-content-center">
+
+            {% for categ in categories %}
+                  <div class="uk-text-center">
+                    <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                      <a href=""><img class="img" src="{{ categ.background_image.url }}" alt="تصویر {{ categ.name }}" /></a>
+                      <div class="uk-position-center">
+                        <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">{{ categ.name_persian }}</p></div>
+                        <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">{{ categ.name }}</p></div>
+                      </div>
+                    </div>
+                  </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    <div class="container">
+      <dic class="row">
+        <div class="col-xl-12">
+          <!-- /////start loop////// -->
+            {% for product in category.product_category.all %}
+              <div class="Card">
+                <div class="Card-img" style="background-image: url({{ product.picture.url }})">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="{% url 'shop:product_detail' product_id=product.product_id %}">مشاهده مشخصات</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="Card-content">
+                  <a href="#!">
+                    <h2>{{ product.brand.name }} {{ product.name }}</h2>
+                    <p>8 هسته ای با فرکانس 5.6 گیگاهرتز</p>
+                  </a>
+                </div>
+              </div>
+          {% endfor %}
+
+          <!-- /////end loop////// -->
+        </div>
+      </dic>
+    </div>
+{% endblock body %}
