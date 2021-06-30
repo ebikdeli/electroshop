@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from profile.models import Profile
 from shop.models import Category, Brand, Product
 from shop.forms import ProductQuantity
@@ -20,6 +20,15 @@ def index(request):
         pass
 
     return render(request, 'index.html', {'categories': categories})
+
+
+def category_detail(request, category_name=None):
+    category = Category.objects.get(name=category_name)
+
+
+class CateogryView(ListView):
+    model = Category
+    paginate_by = 12
 
 
 class ProductView(ListView):
