@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load modulus %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,55 +11,108 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="https://v1.fontapi.ir/css/ShabnamFD" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/uikit-rtl.min.css' %}" />
-      {% block head %}
-      {% endblock head %}
+    {% block head %}
+    {% endblock head %}
 
-    <title>{% block title %}Welcome to Electroshop{% endblock %}</title>
+    <title>{% block title %}به فروشگاه الکتروشاپ خوش آمدید{% endblock %}</title>
+
   </head>
   <body>
-    <header class="header"></header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xl-12">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <button class="button" type="button">دسته بندی</button>
-                <div class="uk-width-large" uk-dropdown>
-                  <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
-                    <div>
-                      <ul class="uk-nav uk-dropdown-nav uk-text-right">
-                        <li class="uk-nav-header">مادر برد</li>
-                        <li class="uk-nav-divider"></li>
-                        <li><a href="#">ایسوس</a></li>
-                        <li><a href="#">ام اس ای</a></li>
-                        <li><a href="#">گیگابایت</a></li>
-                      </ul>
-                    </div>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="button" type="button"><a href="recepit.html">رسید</a></button>
 
-            <!--linke!!!!!!-->
-          </nav>
+  {% block header %}
+    <header class="header">
+      <div id="header">
+        <div class="logo">
+            <a href="{% url 'shop:index' %}"></a>
+          <!-- <a href="#">logo</a> -->
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="">صفحه اصلی</a>
+            </li>
+            <li>
+              <a href="">دسته بندی</a>
+              <ul class="mega-dropdown">
+                <li class="row">
+                    {% for category in categories %}
+                        {% if forloop.counter|modulus:4 %}
+                            <ul class="mega-col">
+                        {% endif %}
+                            <li><a href="">{{ category.name }}</a></li>
+
+
+                  <ul class="mega-col">
+                    <li><a href="#">مادربرد</a></li>
+                    <li><a href="#">پردازنده</a></li>
+                    <li><a href="#">کارت گرافیک</a></li>
+                    <li><a href="#">سیستم خنک کننده</a></li>
+                  </ul>
+                    {% endfor %}
+                  <ul class="mega-col">
+                    <li><a href="#">تبلت</a></li>
+                    <li><a href="#">موبایل</a></li>
+                    <li><a href="#">لپتاب</a></li>
+                    <li><a href="#">ALL in ONE</a></li>
+                  </ul>
+                  <ul class="mega-col">
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                  </ul>
+                  <ul class="mega-col">
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                    <li><a href="#">any</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="">تخفیف ویژه</a>
+              <!-- <ul>
+                <li><a href="#">About Version</a></li>
+                <li><a href="#">About Version</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul> -->
+            </li>
+            <li>
+              <a href="">جشنواره</a>
+            </li>
+            <li>
+              <a href="">پیشنهادت ویژه</a>
+            </li>
+          </ul>
+        </nav>
+        <form class="search" action="">
+          <input name="q" placeholder="جستجو" type="search" />
+        </form>
+        <div class="ICON">
+            {% comment %}
+          <a href="login.html"><i id="user" class="material-icons"> person_outline </i></a>
+          <a href="ShoppingCart.html"
+            ><i class="material-icons"> shopping_cart <span class="uk-badge">10</span></i></a>
+            {% endcomment %}
         </div>
       </div>
-    </div>
+    </header>
+  {% endblock header %}
+
+
+  {% block body %}
     <section class="wrapper">
       <div class="container">
         <div class="row">
           <!-- /////start loop////// -->
-
           <div class="col-sm-4">
-            <div class="card text-white card-has-bg click-col" style="background-image: url('{% static 'images/mainboard.jpg' %}')">
+            <div class="card text-white card-has-bg click-col" style="background-image: url('image/mainboard.jpg')">
               <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
               <div class="card-img-overlay d-flex flex-column">
                 <div class="card-body">
@@ -67,8 +121,96 @@
                   <br />
                   <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
                 </div>
-                  <h2>{{ request.user }}</h2>
+                <!-- <div class="card-footer">
+                  <div class="media">
+                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+                      <small>Director of UI/UX</small>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- /////end loop////// -->
 
+          <div class="col-sm-4">
+            <div class="card text-white card-has-bg click-col" style="background-image: url('image/mainboard.jpg')">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
+              <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                  <p class="card-title mt-0"><a class="text-white">مادر برد</a></p>
+                  <small> 128 مدل</small>
+                  <br />
+                  <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
+                </div>
+                <!-- <div class="card-footer">
+                  <div class="media">
+                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+                      <small>Director of UI/UX</small>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card text-white card-has-bg click-col" style="background-image: url('image/mainboard.jpg')">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
+              <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                  <p class="card-title mt-0"><a class="text-white">مادر برد</a></p>
+                  <small> 128 مدل</small>
+                  <br />
+                  <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
+                </div>
+                <!-- <div class="card-footer">
+                  <div class="media">
+                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+                      <small>Director of UI/UX</small>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card text-white card-has-bg click-col" style="background-image: url('image/mainboard.jpg')">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
+              <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                  <p class="card-title mt-0"><a class="text-white">مادر برد</a></p>
+                  <small> 128 مدل</small>
+                  <br />
+                  <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
+                </div>
+                <!-- <div class="card-footer">
+                  <div class="media">
+                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
+                    <div class="media-body">
+                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+                      <small>Director of UI/UX</small>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card text-white card-has-bg click-col" style="background-image: url('image/mainboard.jpg')">
+              <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
+              <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                  <p class="card-title mt-0"><a class="text-white">مادر برد</a></p>
+                  <small> 128 مدل</small>
+                  <br />
+                  <small class="card-meta mb-2"><a href="mainboard.html">نمایش محصولات</a></small>
+                </div>
                 <!-- <div class="card-footer">
                   <div class="media">
                     <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width: 50px" />
@@ -84,13 +226,19 @@
         </div>
       </div>
     </section>
+  {% endblock body %}
 
-    {% block scripts %}
-        <script src="scripts/script.js"></script>
-        <script src="scripts/uikit-icons.min.js"></script>
-        <script src="scripts/uikit.min.js"></script>
-        <script src="scripts/jquery.js"></script>
-    {% endblock scripts %}
+
+  {% block footer %}
+  {% endblock footer %}
+
+
+  {% block scripts %}
+    <script src="scripts/script.js"></script>
+    <script src="scripts/uikit-icons.min.js"></script>
+    <script src="scripts/uikit.min.js"></script>
+    <script src="scripts/jquery.js"></script>
+  {% endblock scripts %}
 
   </body>
 </html>
