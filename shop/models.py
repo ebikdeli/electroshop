@@ -17,7 +17,7 @@ from datetime import datetime
 import uuid
 import os
 
-CATEGORY_DEFAULT_BACKGROUND = os.path.join(settings.BASE_DIR, 'shop', 'static', 'images', 'mainboard.jpg')
+# CATEGORY_DEFAULT_BACKGROUND = os.path.join(settings.BASE_DIR, 'shop', 'static', 'images', 'mainboard.jpg')
 
 
 def founded_choice():
@@ -45,7 +45,7 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     name_persian = models.CharField(max_length=30, blank=True)
     background_image = models.ImageField(upload_to=category_directory_path,
-                                         default=CATEGORY_DEFAULT_BACKGROUND)
+                                         default='category_default.jpg')
     tags = TaggableManager(blank=True)
     slug = models.SlugField()
 
