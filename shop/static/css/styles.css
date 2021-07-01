@@ -57,6 +57,10 @@ nav a {
   background-color: white;
   color: black;
 }
+#user1 {
+  background-color: gray;
+  color: black;
+}
 .search input {
   border: none;
   padding: 10px;

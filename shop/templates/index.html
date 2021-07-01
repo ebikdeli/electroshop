@@ -35,7 +35,7 @@
         <nav>
           <ul>
             <li>
-              <a href="">صفحه اصلی</a>
+              <a href="{% url 'shop:index' %}">صفحه اصلی</a>
             </li>
             <li>
               <a href="">دسته بندی</a>
@@ -76,10 +76,13 @@
           <input name="q" placeholder="جستجو" type="search" />
         </form>
         <div class="ICON">
-
-          <a href="login.html"><i id="user" class="material-icons"> person_outline </i></a>
-          <a href="ShoppingCart.html"><i class="material-icons"> shopping_cart <span class="uk-badge">10</span></i></a>
-
+            {% if request.user.username %}
+              <a href="{% url 'profile:edit_profile' username=request.user.username %}"><i id="user1" class="material-icons"> person_outline </i></a>
+              <a href="{% url 'cart:cart_view' username=request.user.username %}"><i class="material-icons"> shopping_cart <span class="uk-badge">{{ cart.total_number }}</span></i></a>
+            {% else %}
+                <a href="{% url 'profile:profile_login' %}"><i id="user" class="material-icons"> person_outline </i></a>
+                <a href=""><i class="material-icons"> shopping_cart <span class="uk-badge">-1</span></i></a>
+            {% endif %}
         </div>
       </div>
     </header>
