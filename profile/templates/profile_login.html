@@ -19,14 +19,14 @@
         <!-- Sign Up -->
         <div class="container__form container--signup">
 
-          <form action="#" method="post" class="form" id="form1">
+          <form method="post" class="form" id="form1">
               {% csrf_token %}
             <h2 class="form__title">ثبت نام</h2>
-            <input type="text" placeholder="نام" class="input" />
+            <input name="username" type="text" placeholder="نام کاربری" class="input" />
             <!-- <input type="text" placeholder="نوع خودرو: مثال اسکانیا" class="input" /> -->
-            <input type="text" pattern="\d*" maxlength="12" placeholder="شماره همراه" class="input" />
-            <input type="email" placeholder="آدرس ایمیل" class="input" />
-            <input type="password" placeholder="رمز عبور" class="input" />
+            <input name="email" type="email" placeholder="ایمیل" class="input" />
+            <input name="password1" type="password" placeholder="رمز عبور" class="input" />
+            <input name="password2" type="password" placeholder="تکرار رمز عبور" class="input" />
             <button class="btn">ثبت نام</button>
             <p class="sociallogin">ثبت نام با</p>
 
@@ -45,7 +45,7 @@
           <form action="#" method="post" class="form" id="form2">
               {% csrf_token %}
             <h2 class="form__title">ورود</h2>
-            <input type="email" placeholder="ایمیل" class="input" />
+            <input name="username_or_email_login" type="text" placeholder="نام کاربری یا ایمیل" class="input" />
             <input type="password" placeholder="رمز عبور" class="input" />
             <a href="#" class="link"> فراموشی رمز عبور</a>
             <button class="btn">ورود</button>
@@ -68,9 +68,9 @@
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/uikit-icons.min.js"></script>
-    <script src="scripts/uikit.min.js"></script>
-    <script src="scripts/jquery.js"></script>
+    <script src="{% static 'shop/static/js/script.js' %}"></script>
+    <script src="{% static 'shop/static/js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'shop/static/js/uikit.min.js' %}"></script>
+    <script src="{% static 'shop/static/js/jquery.js' %}"></script>
 </body>
 </html>

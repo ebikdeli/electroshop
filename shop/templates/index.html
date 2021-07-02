@@ -80,7 +80,7 @@
               <a href="{% url 'profile:edit_profile' username=request.user.username %}"><i id="user1" class="material-icons"> person_outline </i></a>
               <a href="{% url 'cart:cart_view' username=request.user.username %}"><i class="material-icons"> shopping_cart <span class="uk-badge">{{ cart.total_number }}</span></i></a>
             {% else %}
-                <a href="{% url 'profile:profile_login' %}"><i id="user" class="material-icons"> person_outline </i></a>
+                <a href="{% url 'profile:login_signup' %}"><i id="user" class="material-icons"> person_outline </i></a>
                 <a href=""><i class="material-icons"> shopping_cart <span class="uk-badge">-1</span></i></a>
             {% endif %}
         </div>

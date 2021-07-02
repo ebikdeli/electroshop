@@ -9,7 +9,7 @@ from profile.forms import ProfileEditForm, EmailUserForm,\
     ProfileCreateForm, UserCreateForm, UserAuthenticationLoginForm
 import re
 
-
+"""
 def profile_login(request):
     if request.method == 'POST':
         user_auth_form = UserAuthenticationLoginForm(request.POST)
@@ -24,23 +24,40 @@ def profile_login(request):
         user_auth_form = UserAuthenticationLoginForm()
 
     return render(request, 'profile_login.html', {'user_auth_form': user_auth_form})
+"""
 
 
-def profile_create(request):
+def user_login_signup(request):
     if request.method == 'POST':
         user_create_form = UserCreateForm(data=request.POST)
-        profile_create_form = ProfileCreateForm(data=request.POST, files=request.FILES)
-        if user_create_form.is_valid() and profile_create_form.is_valid():
-            user_create_form.save()
-            profile_create_form.save()
+        user_auth_form = UserAuthenticationLoginForm(data=request.POST)
+        if user_create_form.is_valid():
+            user_create_form.save()  # It creates new 'user'
+        if user_auth_form.is_valid():
+            user_auth = user_auth_form.cleaned_data
+            user = authenticate(request, username=user_auth['username_or_email_login'], password=user_auth['password'])
+            if user is not None:
+                login(request, user)
+                return redirect('shop:index')
+            try:
+                user = User.objects.get(email=user_auth['username_or_email_login'])
+                login(request, user)
+                return redirect('shop:index')
+            except User.DoesNotExist:
+                messages.add_message(request, messages.ERROR, 'اطلاعات وارد شده اشتباه است!')
+
     else:
         user_create_form = UserCreateForm()
-        profile_create_form = ProfileCreateForm()
+        user_auth_form = UserAuthenticationLoginForm()
 
-    return render(request, 'profile/templates/profile_create.html', context={
+    return render(request, 'profile/templates/profile_login.html', context={
         'user_create_form': user_create_form,
-        'profile_create_form': profile_create_form
+        'user_auth_form': user_auth_form,
     })
+
+
+def profile_login(request):
+    pass
 
 
 def profile_edit(request, username):

@@ -24,5 +24,5 @@ class EmailUserForm(forms.Form):
 
 
 class UserAuthenticationLoginForm(forms.Form):
-    username = forms.CharField()
+    username_or_email_login = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
