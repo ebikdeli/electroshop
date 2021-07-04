@@ -9,9 +9,14 @@ from shop.forms import ProductQuantity
 
 def index(request):
     try:
+        # product_discounted = Product.objects.all().filter() # filter by 'discounted' field
         product_discounted = Product.objects.all()
+
+        # product_offered = Product.objects.all().filter()  # filter by 'special_offer' field
+        product_offered = Product.objects.all()
     except Product.DoesNotExist:
         product_discounted = None
+        product_offered = None
     try:
         categories = Category.objects.all()
     except Category.DoesNotExist:
@@ -29,6 +34,7 @@ def index(request):
     product_special_offer_counter = 4
     return render(request, 'index.html', {'categories': categories,
                                           'product_discounted': product_discounted,
+                                          'product_offered': product_offered,
                                           'product_discount_counter': product_discounted_counter,
                                           'product_special_offer_counter': product_special_offer_counter})
 
