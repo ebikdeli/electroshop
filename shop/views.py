@@ -1,3 +1,5 @@
+import celery
+import requests
 from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import ListView, DetailView
 from profile.models import Profile
@@ -6,6 +8,10 @@ from shop.forms import ProductQuantity
 
 
 def index(request):
+    try:
+        product_discounted = Product.objects.all()
+    except Product.DoesNotExist:
+        product_discounted = None
     try:
         categories = Category.objects.all()
     except Category.DoesNotExist:
@@ -19,7 +25,12 @@ def index(request):
     except AttributeError:
         pass
 
-    return render(request, 'index.html', {'categories': categories})
+    product_discounted_counter = 4
+    product_special_offer_counter = 4
+    return render(request, 'index.html', {'categories': categories,
+                                          'product_discounted': product_discounted,
+                                          'product_discount_counter': product_discounted_counter,
+                                          'product_special_offer_counter': product_special_offer_counter})
 
 
 # def category_detail(request, category_name=None):

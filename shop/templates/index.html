@@ -13,7 +13,7 @@
     <link href="https://v1.fontapi.ir/css/ShabnamFD" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="{% static 'css/uikit-rtl.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'shop/static/css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'shop/static/css/style.css' %}"/>
 
 
     {% block head %}
@@ -123,6 +123,122 @@
         </div>
       </div>
     </section>
+
+    <div class="container">
+      <p>پیشنهاد ویژه</p>
+      <div class="slide">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow=" animation: push">
+          <ul class="uk-slideshow-items">
+            <li class="slide">
+              <div class="PR">
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="slide">
+              <div class="PR">
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                    <a href=""><img class="img" src="image/header.jpg" alt="" /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">مادربرد</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">mainboard</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <p>تخفیف دار</p>
+
+      <div class="slide">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow=" animation: push">
+          <ul class="uk-slideshow-items">
+
+            <li class="slide">
+              <div class="PR">
+            {% for product in product_discounted %}
+                {% if forloop.counter|modulus:product_discount_counter %}
+              </div>
+            </li>
+            <li class="slide">
+              <div class="PR">
+                  {% endif %}
+                <div class="uk-text-center">
+                  <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="1">
+                    <a href=""><img class="img" src="{% static 'shop/static/images/header.jpg' %}" alt="{{ product.brand.name }}-{{ product.name }} تصویر " /></a>
+                    <div class="uk-position-center">
+                      <div class="uk-transition-slide-top-small"><p class="uk-margin-remove">{{ product.name }}</p></div>
+                      <div class="uk-transition-slide-bottom-small"><p class="uk-margin-remove">{{ product.name }}</p></div>
+                    </div>
+                  </div>
+                </div>
+
+
+            {% endfor %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   {% endblock body %}
 
 
