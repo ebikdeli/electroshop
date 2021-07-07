@@ -134,3 +134,12 @@ class ProductImages(models.Model):
 
     def __str__(self):
         return f'{self.product.brand.name}_{self.product.name}_image{self.id}'
+
+
+class Camera(models.Model):
+    product = models.OneToOneField(Product,
+                                   on_delete=models.CASCADE,
+                                   related_name='camera',
+                                   null=True)
+    main_camera = models.CharField(max_length=20)
+    lcd = models.CharField(max_length=20)

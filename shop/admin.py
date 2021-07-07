@@ -1,10 +1,15 @@
 from django.contrib import admin
 from shop.models import Category, Brand, Product,\
-    ProductImages
+    ProductImages, Camera
 
 
 admin.site.register(Category)
 admin.site.register(Brand)
+admin.site.register(Camera)
+
+
+class CameraInlineAdmin(admin.TabularInline):
+    model = Camera
 
 
 class ProductImageInlineAdmin(admin.StackedInline):
@@ -13,4 +18,4 @@ class ProductImageInlineAdmin(admin.StackedInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    inlines = [ProductImageInlineAdmin]
+    inlines = [CameraInlineAdmin, ProductImageInlineAdmin]
