@@ -1,3 +1,112 @@
+{% extends 'shop/templates/index.html' %}
+{% load static %}
+{% load multiple %}
+
+{% block title %}{{ profile.user.username }} factor{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <table class="uk-table uk-table-small uk-table-divider">
+            <thead>
+              <tr>
+                <th>اطلاعات کامل</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>نام</td>
+                <td>
+                  <!--
+                                Customer name-->
+                    {{ profile.user.username }}
+                </td>
+              </tr>
+
+              <tr>
+                <td>ایمیل</td>
+                <td>
+                  <!--
+                                customer email-->
+                    {{ profile.user.email }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="uk-placeholder uk-text-center">لیست کالاهای سفارش داده شده</div>
+          <table class="uk-table uk-table-small uk-table-divider uk-text-center">
+            <tbody>
+              <!--Start loop-->
+              {% for product in order.product.all %}
+                {% for product_id, numbers in order.items.items %}
+                    {% if product.product_id == product_id %}
+
+              <tr>
+                <td>
+                  <!--Name of selected service -->
+                    {{ product.brand.name }} {{ product.name }}
+                </td>
+                <td>
+                  <!--unit price of selected service -->
+                    {{ product.price }}
+                </td>
+                <td>
+                  <!--total numbers of the product -->
+                    {{ numbers }}
+                </td>
+                <td>
+                  <!--total price of the ordered product -->
+                    {{ product.price|multiple:numbers }}
+                </td>
+              </tr>
+              {% endif %}
+                {% endfor %}
+              {% endfor %}
+              <!--End loop-->
+            </tbody>
+          </table>
+          <hr class="uk-divider-icon" />
+          <table class="uk-table uk-table-small uk-table-divider">
+            <tbody>
+              <tr>
+                <td>قیمت کل (تومان)</td>
+                <td>
+                  <!--
+                                Total price-->
+                    {{ order.total_price }}
+                </td>
+              </tr>
+              <tr>
+                <td>تعداد کل محصولات سفارش داده شده (عدد)</td>
+                <td>
+                  <!--
+                                Total price-->
+                    {{ order.total_items }}
+                </td>
+              </tr>
+              <tr>
+                <td>شماره پیگیری</td>
+                <td>
+                  <!--
+                                Issue Tracking-->
+                    {{ order.order_id }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" id="noPrint" onclick="window.print();"><span uk-icon="icon: print; ratio: 2.5"></span></button>
+
+          <a href="{% url 'shop:index' %}" class="btn btn-primary noPrint" id="noPrint">بازگشت به صفحه اصلی</a>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+
+{% comment %}
 <!DOCTYPE html>
 {% load static %}
 {% load multiple %}
@@ -31,3 +140,4 @@
     {% endblock %}
 </body>
 </html>
+{% endcomment %}

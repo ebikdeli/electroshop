@@ -1,22 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ product.brand.name }} {{ product.name }}</title>
-</head>
-<body>
-    {% block content %}
-        <h1>Name: {{ product.brand.name }} {{ product.name }}</h1>
-        <h2>Price: {{ product.price }}</h2>
-        <h2>Manufacturer: {{ product.brand.name }}</h2>
-        <p><img src="{{ product.picture.url }}" alt="تصویر محصول"></p>
-        <form method="post">
-            {% csrf_token %}
-            <table>
-                {{ product_quantity_form.as_table }}
-            </table>
-            <input type="submit" value="add to cart">
-        </form>
-    {% endblock content %}
-</body>
-</html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}{{ product.brand.name }}-{{ product.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 DETAIL">
+          <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+            <div class="uk-card-media-left uk-cover-container">
+              <img class="detail" src="{{ product.picture.url }}" alt="" uk-cover />
+              <canvas width="600" height="400"></canvas>
+            </div>
+            <div>
+              <div class="uk-card-body">
+                <h3 class="uk-card-title">Xperia XA</h3>
+                <table class="uk-table uk-table-small uk-table-divider">
+                  <tbody>
+                    <tr>
+                      <td>میزان رم</td>
+                      <td>2 گیگابایت</td>
+                    </tr>
+                    <tr>
+                      <td>میزان حافظه داخلی</td>
+                      <td>16 گیگابایت</td>
+                    </tr>
+                    <tr>
+                      <td>اندازه</td>
+                      <td>5.0</td>
+                    </tr>
+                    <tr>
+                      <td>تعداد سیمکارت</td>
+                      <td>2 عدد</td>
+                    </tr>
+                    <tr>
+                      <td>دوربین</td>
+                      <td>13 مگاپیکسل</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+        <li><a href="#">مشخصات کامل</a></li>
+        <li><a href="#">بررسی تخخصی</a></li>
+        <li><a href="#">نظرات کاربران</a></li>
+      </ul>
+
+      <ul class="uk-switcher uk-margin">
+        <li>
+          <div class="col-xl-12">
+            <div class="uk-overflow-auto">
+              <table class="uk-table uk-table-small uk-table-divider" id="mylist" style="text-align: center">
+                <tbody>
+                  <tr>
+                    <td>قابلیت</td>
+                    <td>توان</td>
+                  </tr>
+                  <tr>
+                    <td>پردازنده</td>
+                    <td>1.4 گیگاهرتز</td>
+                  </tr>
+                  <tr>
+                    <td>کیفیت صفحه نمایش</td>
+                    <td>4000 px</td>
+                  </tr>
+                  <tr>
+                    <td>حافظه داخلی</td>
+                    <td>16 گیگابایت</td>
+                  </tr>
+                  <tr>
+                    <td>camera</td>
+                    <td>13MP</td>
+                  </tr>
+                  <tr>
+                    <td>پردازنده</td>
+                    <td>1.4 گیگاهرتز</td>
+                  </tr>
+                  <tr>
+                    <td>کیفیت صفحه نمایش</td>
+                    <td>4000 px</td>
+                  </tr>
+                  <tr>
+                    <td>حافظه داخلی</td>
+                    <td>16 گیگابایت</td>
+                  </tr>
+                  <tr>
+                    <td>camera</td>
+                    <td>13MP</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li>
+          <h2>زیبایی در جلوه ی هنر</h2>
+          <br />
+          <p>سونی اکسپریا</p>
+          <br />
+            <p>
+                {{ product.description }}این محصول....
+            </p>
+        </li>
+        <li>{{ product.comment.all }}</li>
+      </ul>
+    </div>
+{% endblock content %}
