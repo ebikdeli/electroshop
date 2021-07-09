@@ -1,3 +1,92 @@
+{% extends 'shop/templates/index.html' %}
+{% load static %}
+{% load multiple %}
+
+{% block head %}
+     <link rel="stylesheet" href="{% static 'checkout/static/css/CheckoutForm.css' %}" />
+{% endblock %}
+
+{% block title %}{{ profile.user.username }} purchase checkout{% endblock %}
+
+{% block content %}
+    <div class="container">
+    {% if cart.items %}
+      <div class="row">
+        <div class="col-xl-4">
+          <div class="right">
+            <div class="rightheader">
+              <p>محصولات انتخاب شده</p>
+            </div>
+            <div class="items">
+
+            {% comment%} This loop is for right section of the checkout page {% endcomment %}
+              {% for product in cart.product.all %}
+                      <div>
+                        <img src="{{ product.picture.url }}" width="50" height="50" />
+                        <span class="uk-text-middle">{{ product.brand.name }}_{{ product.name }}</span>
+                      </div>
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="BTN">
+            <button><span class="material-icons"> chevron_left </span><a href="{% url 'shop:index' %}">بازگشت</a></button>
+            <button><span class="material-icons"> delete </span><a href="{% url 'cart:cart_clean' username=request.user.username %}">حذف</a></button>
+            <button onclick="window.print()"><span class="material-icons"> save </span><a href="">ذخیره</a></button>
+            <button><span class="material-icons"> credit_card </span><a href="{% url 'checkout:pay' username=profile.user.username %}">پرداخت</a></button>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <div class="left">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">محصول انتخاب شده</th>
+                  <th scope="col">تعداد</th>
+                  <th scope="col">قیمت محصول</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              {% comment %} This is the product list loop {% endcomment %}
+              {% for product in cart.product.all %}
+                {% for product_id, numbers in cart.items.items %}
+                    {% if product.product_id == product_id %}
+
+                    <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <td>{{ product.brand.name }}_{{ product.name }}</td>
+                      <td>{{ numbers }}</td>
+                      <td>{{ product.price|multiple:numbers }} تومان </td>
+                    </tr>
+
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">جمع کل فاکتور</th>
+                <th scope="col">{{ cart.total_price }} تومان </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    {% endif %}
+    </div>
+{% endblock content %}
+
+
+
+
+{% comment %}
 <!DOCTYPE html>
 {% load static %}
 {% load multiple %}
@@ -31,3 +120,4 @@
     {% endblock content %}
 </body>
 </html>
+{% endcomment %}
