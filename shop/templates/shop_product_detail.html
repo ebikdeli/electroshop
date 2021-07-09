@@ -106,7 +106,9 @@
                 {{ product.description }}این محصول....
             </p>
         </li>
-        <li>{{ product.comment.all }}</li>
+        {% comment %}
+            The comment section must implemented as a for loop!!!!!
+        {% endcomment %}
           <li>
           <div class="be-comment-block">
             <p class="comments-title">نظرات (3)</p>
