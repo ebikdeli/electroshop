@@ -1,16 +1,82 @@
-<!DOCTYPE html>
+{% extends 'shop/templates/index.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ profile_edit_form }}
-        {{ email_form }}
-        <input type="submit" value="Send">
-    </form>
-</body>
-</html>
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'profile/static/css/profileEdit.css' %}" />
+{% endblock %}
+
+{% block title %}{{ request.user.username }}_profile_edit{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="main-body">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="{% if request.user.profile.picture %}{{ request.user.profile.picture }}{% else %}https://bootdey.com/img/Content/avatar/avatar6.png{% endif %}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110" />
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <h4>{{ request.user.username }}</h4>
+                    <div class="custom-file">
+                      <!-- class="custom-file-label"  -->
+                      <label for="customFile">ویرایش عکس</label>
+                      <input type="file" class="custom-file-input" id="customFile" />
+                    </div>
+                    <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
+                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                    <button class="btn btn-primary">Follow</button>
+                    <button class="btn btn-outline-primary">Message</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">نام و نام خانوادگی</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">آدرس ایمل</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="email" class="form-control" name="email" value="{{ request.user.email }}" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">تلفن همراه</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" name="phone" value="{{ request.user.profile.phone }}" />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">آدرس</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="text" class="form-control" name="address" value="{{ request.user.profile.address }}" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3"></div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="submit" class="btn btn-primary px-4" value="ذخیره" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

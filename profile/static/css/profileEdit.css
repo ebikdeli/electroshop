@@ -1,0 +1,44 @@
+* {
+  direction: rtl;
+  font-family: "Shabnam FD", sans-serif;
+  text-align: right;
+  text-align: justify;
+  text-justify: inter-word;
+}
+/* @font-face {} */
+@import url("https://v1.fontapi.ir/css/ShabnamFD");
+h4 {
+  font-family: "Shabnam FD", sans-serif;
+}
+
+.custom-file label {
+  text-align: center;
+  width: 100%;
+  /* padding-right: 50px;
+  margin-right: 50px; */
+  border-bottom: 1px solid black;
+}
+.main-body {
+  padding: 15px;
+}
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
