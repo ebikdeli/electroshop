@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from cart.models import Cart
 from django.contrib.auth.views import auth_login
@@ -60,6 +61,12 @@ def profile_login(request):
     pass
 
 
+@login_required
+def profile_view(request, username=None):
+    return render(request, 'profile/templates/profile_view.html')
+
+
+@login_required
 def profile_edit(request, username):
     initial_profile_form_data = {
         'phone': Profile.phone,
@@ -101,5 +108,4 @@ def profile_edit(request, username):
         else:
             email_form = EmailUserForm()
 
-    return render(request, 'profile/templates/profile_edit.html', context={'profile_edit_form': profile_edit_form,
-                                                                           'email_form': email_form})
+    return render(request, 'profile/templates/profile_edit.html', context={'profile_edit_form': profile_edit_form,                                                                           'email_form': email_form})
