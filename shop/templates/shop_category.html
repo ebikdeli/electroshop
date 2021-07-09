@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="Card-content">
-              <a href="#!">
+              <a href="{% url 'shop:product_detail' product_id=product.product_id %}">
                 <h2>{{ product.brand.name }}_{{ product.name }}</h2>
                 <p>{{ product.description|truncatechars:10 }}</p>
               </a>
