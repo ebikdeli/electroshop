@@ -2,6 +2,10 @@
 {% load static %}
 {% load multiple %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'checkout/static/css/CheckoutForm.css' %}" />
+{% endblock head %}
+
 {% block title %}{{ profile.user.username }} factor{% endblock %}
 
 {% block header %}
@@ -98,9 +102,10 @@
               </tr>
             </tbody>
           </table>
-          <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" id="noPrint" onclick="window.print();"><span uk-icon="icon: print; ratio: 2.5"></span></button>
-
-          <a href="{% url 'shop:index' %}" class="btn btn-primary noPrint" id="noPrint">بازگشت به صفحه اصلی</a>
+        </div>
+        <div class="BTN">
+          <button><span class="material-icons"> chevron_left </span><a href="{% url 'shop:index' %}">بازگشت</a></button>
+          <button onclick="window.print()"><span class="material-icons"> save </span><a href="">ذخیره</a></button>
         </div>
       </div>
     </div>
