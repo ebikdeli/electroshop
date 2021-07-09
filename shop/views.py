@@ -39,19 +39,30 @@ def index(request):
                                           'product_special_offer_counter': product_special_offer_counter})
 
 
-# def category_detail(request, category_name=None):
-#    category = Category.objects.get(name=category_name)
+"""
+def products_in_category(request, slug=None):
+    categories = Category.objects.all()
+    product = Product.objects.get(category=Category.objects.get(slug=slug))
+    return render(request, 'shop_category.html', context={'categories': categories,
+                                                          'product': product})
+"""
 
 
-class CateogryView(DetailView):
+class CategoryView(DetailView):
     model = Category
     paginate_by = 12
     context_object_name = 'category'
     template_name = 'shop_category.html'
+    category_name = None
 
-    def get_context_data(self, **kwargs):
+    def get(self, request, slug=None, *args, **kwargs):
+        self.category_name = Category.objects.get(slug=slug)
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context['products'] = Product.objects.all().filter(category=Category.objects.get(name=self.category_name))
         return context
 
 
