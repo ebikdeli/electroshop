@@ -8,10 +8,9 @@ from cart.forms import ChangeCart
 
 @login_required
 def cart_view(request, username):
-    cart = Profile.objects.get(user=User.objects.get(username=username)).profile_cart
+    # cart = Profile.objects.get(user=User.objects.get(username=username)).profile_cart
     change_cart_form = ChangeCart()
-    context = {'cart': cart,
-               'change_cart_form': change_cart_form}
+    context = {'change_cart_form': change_cart_form}
     return render(request, 'cart_view.html', context)
 
 

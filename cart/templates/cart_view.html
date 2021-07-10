@@ -8,6 +8,113 @@
 {% block title %}{{ request.user.username }}{% endblock %}
 
 {% block content %}
+    <nav class="navbar navbar-expand-sm bg-dark justify-content-center fixed-top d-flex flex-column">
+      <img src="{% if cart.profile.picture %}{{ cart.profile.picture.url }}{% else %}image/icons/example.jpg{% endif %}" alt="آواتار کاربر" />
+      <p>{{ cart.profile.user.username }}</p>
+    </nav>
+    <div class="container">
+    {% if cart.items %}
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="basket">
+            <div class="basket-labels">
+              <ul>
+                <li class="item item-heading">محصول انتخاب شده</li>
+                <li class="price">قیمت</li>
+                <li class="quantity">تعداد</li>
+                <li class="subtotal">جمع کل</li>
+              </ul>
+            </div>
+            <div class="basket-product">
+              <div class="item">
+                <div class="product-image">
+                  <img src="image/mainboard.jpg" alt="Placholder Image 2" class="product-frame" />
+                </div>
+                <div class="product-details">
+                  <h1>
+                    <strong><span class="item-quantity"></span>مادربرد AMD</strong>
+                  </h1>
+                  <p><strong>مدل KVS</strong></p>
+                  <p>سری ساخت 124183</p>
+                </div>
+              </div>
+              <div class="price">20000000</div>
+              <div class="quantity">
+                <input type="number" value="1" min="1" class="quantity-field" />
+              </div>
+              <div class="subtotal"></div>
+              <div class="remove">
+                <button>حذف</button>
+              </div>
+            </div>
+            <div class="basket-product">
+              <div class="item">
+                <div class="product-image">
+                  <img src="image/mainboard.jpg" alt="Placholder Image 2" class="product-frame" />
+                </div>
+                <div class="product-details">
+                  <h1>
+                    <strong><span class="item-quantity"></span>مادربرد AMD</strong>
+                  </h1>
+                  <p><strong>مدل KVS</strong></p>
+                  <p>سری ساخت 124183</p>
+                </div>
+              </div>
+              <div class="price">4000000</div>
+              <div class="quantity">
+                <input type="number" value="1" min="1" class="quantity-field" />
+              </div>
+              <div class="subtotal"></div>
+              <div class="remove">
+                <button>حذف</button>
+              </div>
+            </div>
+          </div>
+          <aside>
+            <div class="summary">
+              <div class="summary-total-items"><span class="total-items"></span> تعداد محصولات انتخاب شده</div>
+              <div class="summary-subtotal">
+                <div class="subtotal-title">قیمت</div>
+                <div class="subtotal-value final-value" id="basket-subtotal"></div>
+                <div class="summary-promo hide">
+                  <div class="promo-title">تخفیف</div>
+                  <div class="promo-value final-value" id="basket-promo"></div>
+                </div>
+              </div>
+              <div class="summary-total">
+                <div class="total-title">جمع کل</div>
+                <div class="total-value final-value" id="basket-total"></div>
+                <div class="basket-module">
+                  <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field" />
+                  <button class="promo-code-cta">اعمال تخفیف</button>
+                </div>
+              </div>
+              <div class="summary-checkout">
+                <button class="checkout-cta"><a href="{% url 'checkout:checkout' username=request.user.username %}">مشاهده فاکتور</a></button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    {% else %}
+    <h1>سبد شما خالی است</h1>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'cart/static/js/anime.min.js' %}"></script>
+    <script src="{% static 'shop/static/js/uikit-icons.min.js' %}"></script>
+    <script src="{% static 'shop/static/js/uikit.min.js' %}"></script>
+    <script src="{% static 'shop/static/js/jquery.js' %}"></script>
+    <script src="{% static 'cart/static/js/SoppingCart.js' %}"></script>
+{% endblock scripts %}
+
+
+
+{% comment %}
+
+{% block content %}
     <div class="container">
       <div class="row">
         <div class="col-xl-12">
@@ -103,6 +210,11 @@
     <script src="{% static 'shop/static/js/jquery.js' %}"></script>
     <script src="{% static 'cart/static/js/SoppingCart.js' %}"></script>
 {% endblock scripts %}
+
+{% endcomment %}
+
+
+<!--                              between codes!                                              -->
 
 
 {% comment %}

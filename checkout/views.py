@@ -45,6 +45,7 @@ def pay(request, username):
 """
 
 
+@login_required
 def pay(request, username):
     profile = User.objects.get(username=username).profile
     cart = profile.profile_cart
@@ -65,6 +66,7 @@ def pay(request, username):
 
 
 @csrf_exempt
+@login_required
 def verify(request, username):
     user = User.objects.get(username=username)
     cart = Cart.objects.get(profile=user.profile)
@@ -84,6 +86,7 @@ def verify(request, username):
     return HttpResponse('پرداخت موفقیت آمیز نبود')
 
 
+@login_required
 def success_pay(request, username):
     profile = User.objects.get(username=username).profile
     order = profile.profile_orders.last()
