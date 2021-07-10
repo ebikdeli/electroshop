@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 from profile.models import Profile
-from cart.forms import ChangeCart
+from cart.forms import ChangeCart, CouponCode
 
 
 @login_required
@@ -46,3 +48,12 @@ def cart_clean(request, username):
     cart.items = {}
     cart.save()
     return redirect('cart:cart_view', username=username)
+
+
+@csrf_exempt
+def cart_discount_coupon(request):
+    if request.is_ajax and request.method == 'GET':
+        print('ok')
+        print(request.GET['coupon_code'])
+    else:
+        print('holl')

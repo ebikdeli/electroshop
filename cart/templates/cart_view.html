@@ -1,6 +1,6 @@
 {% extends 'shop/templates/index.html' %}
 {% load static %}
-
+{% block header %}{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'cart/static/css/ShoppinCart.css' %}" />
 {% endblock head %}
@@ -9,7 +9,7 @@
 
 {% block content %}
     <nav class="navbar navbar-expand-sm bg-dark justify-content-center fixed-top d-flex flex-column">
-      <img src="{% if cart.profile.picture %}{{ cart.profile.picture.url }}{% else %}image/icons/example.jpg{% endif %}" alt="آواتار کاربر" />
+      <img src="{% if cart.profile.picture %}{{ cart.profile.picture.url }}{% else %}{% static 'cart/static/images/example.jpg' %}{% endif %}" alt="آواتار کاربر" />
       <p>{{ cart.profile.user.username }}</p>
     </nav>
     <div class="container">
@@ -25,20 +25,23 @@
                 <li class="subtotal">جمع کل</li>
               </ul>
             </div>
+              {% for item_id, number in cart.items.items %}
+                {% for product_obj in cart.product.all %}
+                    {% if item_id == product_obj.product_id %}
             <div class="basket-product">
               <div class="item">
                 <div class="product-image">
-                  <img src="image/mainboard.jpg" alt="Placholder Image 2" class="product-frame" />
+                  <img src="{% if product_obj.picture %}{{ product_obj.picture.url }}{% else %}{% static 'shop/static/images/mainboard.jpg' %}{% endif %}" alt="Placholder Image 2" class="product-frame" />
                 </div>
                 <div class="product-details">
                   <h1>
-                    <strong><span class="item-quantity"></span>مادربرد AMD</strong>
+                    <strong><span class="item-quantity"></span>{% for category in product_obj.category.all %}{{ category }}: {% endfor %}{{ product_obj.brand.name }}</strong>
                   </h1>
-                  <p><strong>مدل KVS</strong></p>
+                  <p><strong>{{ product_obj.name }}</strong></p>
                   <p>سری ساخت 124183</p>
                 </div>
               </div>
-              <div class="price">20000000</div>
+              <div class="price">{{ product_obj.price }}</div>
               <div class="quantity">
                 <input type="number" value="1" min="1" class="quantity-field" />
               </div>
@@ -47,28 +50,9 @@
                 <button>حذف</button>
               </div>
             </div>
-            <div class="basket-product">
-              <div class="item">
-                <div class="product-image">
-                  <img src="image/mainboard.jpg" alt="Placholder Image 2" class="product-frame" />
-                </div>
-                <div class="product-details">
-                  <h1>
-                    <strong><span class="item-quantity"></span>مادربرد AMD</strong>
-                  </h1>
-                  <p><strong>مدل KVS</strong></p>
-                  <p>سری ساخت 124183</p>
-                </div>
-              </div>
-              <div class="price">4000000</div>
-              <div class="quantity">
-                <input type="number" value="1" min="1" class="quantity-field" />
-              </div>
-              <div class="subtotal"></div>
-              <div class="remove">
-                <button>حذف</button>
-              </div>
-            </div>
+            {% endif %}
+          {% endfor %}
+          {% endfor %}
           </div>
           <aside>
             <div class="summary">
@@ -87,6 +71,7 @@
                 <div class="basket-module">
                   <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field" />
                   <button class="promo-code-cta">اعمال تخفیف</button>
+
                 </div>
               </div>
               <div class="summary-checkout">
