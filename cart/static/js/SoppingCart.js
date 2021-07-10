@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 $(".promo-code-cta").click(function () {
   /////////test ajax////////////
-  if ($(".basket-module").val() === "") {
+  if ($(".basket-module").val() !== " ") {
     $.ajax({
       type: "GET",
       url: "http://127.0.0.1:8000/cart/coupon/valid/", ///////enter url/////
