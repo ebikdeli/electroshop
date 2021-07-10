@@ -50,6 +50,7 @@ def cart_clean(request, username):
     return redirect('cart:cart_view', username=username)
 
 
+@login_required
 @csrf_exempt
 def cart_discount_coupon(request):
     if request.is_ajax and request.method == 'GET':
