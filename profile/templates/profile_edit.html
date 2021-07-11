@@ -9,6 +9,8 @@
 
 {% block content %}
     <div class="container">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
       <div class="main-body">
         <div class="row">
           <div class="col-lg-4">
@@ -32,6 +34,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-lg-8">
             <div class="card">
               <div class="card-body">
@@ -76,7 +79,9 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
+    </form>
     </div>
 {% endblock %}
