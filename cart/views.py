@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core import serializers
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from profile.models import Profile
 from cart.forms import ChangeCart, CouponCode
@@ -56,5 +57,7 @@ def cart_discount_coupon(request):
     if request.is_ajax and request.method == 'GET':
         print('ok')
         print(request.GET['coupon_code'])
+        return JsonResponse({'price': 30000, 'status': 200}, status=200, safe=False)
     else:
         print('holl')
+        return JsonResponse({'error': 'no good happening'}, status=201, safe=False)

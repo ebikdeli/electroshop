@@ -26,9 +26,13 @@ $(".promo-code-cta").click(function () {
         coupon_code: $("#promo-code").val(),
       },
       success: function (dataResult) {
-        var dataResult = JSON.parse(dataResult);
-        if (dataResult.statusCode == 200) {
-          var after_apply = $("#basket-total").val() - dataResult.value;
+        //var dataResult = JSON.parse(dataResult);
+          console.log(dataResult['price'])
+        //if (dataResult.statusCode == 200) {
+          if (dataResult['status'] == 200) {
+          console.log(dataResult['price'])
+          var after_apply = $("#basket-total").val() - dataResult['price'];
+          console.log(after_apply)
           $("#basket-total").val(after_apply);
           // $('#apply').hide();
           // $('#edit').show();
