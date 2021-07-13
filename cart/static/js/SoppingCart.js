@@ -27,7 +27,7 @@ $(".promo-code-cta").click(function () {
       },
       success: function (dataResult) {
         //var dataResult = JSON.parse(dataResult);
-          console.log(dataResult['price'])
+          console.log(dataResult)
         //if (dataResult.statusCode == 200) {
           if (dataResult['status'] == 200) {
           console.log(dataResult['price'])
@@ -38,8 +38,9 @@ $(".promo-code-cta").click(function () {
           // $('#edit').show();
           // $('#message').html("Promocode applied successfully !");
           alert("کد صحیح است");
-        } else if (dataResult.statusCode == 201) {
-          alert("کد اشتباه است 201 erorr");
+        } else if (dataResult['status'] == 201) {
+            alert(dataResult['error'])
+          //alert("کد اشتباه است 201 erorr");
           // $('#message').html("Invalid promocode !");
         }
       },
