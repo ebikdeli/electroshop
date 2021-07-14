@@ -34,18 +34,25 @@ $(".promo-code-cta").click(function () {
       url: "http://127.0.0.1:8000/cart/coupon/valid/", ///////enter url/////
       data: {
         coupon_code: $("#promo-code").val(),
-          basket_total: $("#basket-total").val(),
+        basket_total: $("#basket-total").text(),  //basket_total: $("#basket-total").val()   <--- IT'S WRONG!
+        //basket_total: $("#basket-total").html()  <--- IT'S OK!
       },
       success: function (dataResult) {
         //var dataResult = JSON.parse(dataResult);
-          console.log(dataResult)
         //if (dataResult.statusCode == 200) {
           if (dataResult['status'] == 200) {
-          console.log(dataResult['value'])
-          var after_apply = $('#basket-total').val() - dataResult['price'];
-          console.log('basket-total tag: ', $('#basket-total').val())
-          console.log(after_apply)
-          $("#basket-total").val(after_apply);
+
+          let discount = Number(dataResult['value'] + 500000);
+          let total_price = Number($('#basket-total').text());
+          let after_apply = total_price - discount;
+
+          console.log(dataResult);
+          console.log($('#basket-subtotal').html(), '  ', typeof($('#basket-subtotal').text()));
+          console.log('basket-total tag: ', $('#basket-total').text());
+          console.log('after_apply: ', after_apply);
+
+          $("#basket-total").text(after_apply);
+
           // $('#apply').hide();
           // $('#edit').show();
           // $('#message').html("Promocode applied successfully !");
@@ -141,7 +148,8 @@ function recalculateCart(onlyTotal) {
 function updateQuantity(quantityInput) {
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
-  var price = parseFloat(productRow.children(".price").text()) * 1000000;
+  //var price = parseFloat(productRow.children(".price").text()) * 1000000; // With thousand seprator
+  var price = parseFloat(productRow.children(".price").text()); // Without thousand seprator
   console.log('price: ', price)
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
