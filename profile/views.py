@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from cart.models import Cart
@@ -30,10 +30,34 @@ def profile_login(request):
 
 def user_login_signup(request):
     if request.method == 'POST':
+        user_create_form = UserCreateForm()
+        user_auth_form = UserAuthenticationLoginForm()
+
+    else:
+        print('before form')
+        user_create_form = UserCreateForm()
+        user_auth_form = UserAuthenticationLoginForm()
+
+    return render(request, 'profile/templates/profile_login.html', context={
+        'user_create_form': user_create_form,
+        'user_auth_form': user_auth_form,
+    })
+
+
+def user_signup(request):
+    if request.method == 'POST':
         user_create_form = UserCreateForm(data=request.POST)
-        user_auth_form = UserAuthenticationLoginForm(data=request.POST)
         if user_create_form.is_valid():
-            user_create_form.save()  # It creates new 'user'
+            pass
+    else:
+        return redirect('profile:login_signup')
+
+
+def user_login(request):
+    if request.method == 'POST':
+
+        user_auth_form = UserAuthenticationLoginForm(data=request.POST)
+        print(user_auth_form)
         if user_auth_form.is_valid():
             user_auth = user_auth_form.cleaned_data
             user = authenticate(request, username=user_auth['username_or_email_login'], password=user_auth['password'])
@@ -45,16 +69,10 @@ def user_login_signup(request):
                 login(request, user)
                 return redirect('shop:index')
             except User.DoesNotExist:
+                print('user not exist!')
                 messages.add_message(request, messages.ERROR, 'اطلاعات وارد شده اشتباه است!')
-
     else:
-        user_create_form = UserCreateForm()
-        user_auth_form = UserAuthenticationLoginForm()
-
-    return render(request, 'profile/templates/profile_login.html', context={
-        'user_create_form': user_create_form,
-        'user_auth_form': user_auth_form,
-    })
+        return redirect('profile:login_signup')
 
 
 def profile_login(request):
@@ -109,3 +127,9 @@ def profile_edit(request, username):
             email_form = EmailUserForm()
 
     return render(request, 'profile/templates/profile_edit.html', context={'profile_edit_form': profile_edit_form,                                                                           'email_form': email_form})
+
+
+@login_required
+def user_logout(request, username=None):
+    logout(request)
+    return redirect('shop:index')

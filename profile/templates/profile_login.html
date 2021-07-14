@@ -19,7 +19,7 @@
         <!-- Sign Up -->
         <div class="container__form container--signup">
 
-          <form method="post" class="form" id="form1">
+          <form method="post" action="{% url 'profile:user_signup' %}" class="form" id="form1">
               {% csrf_token %}
             <h2 class="form__title">ثبت نام</h2>
             <input name="username" type="text" placeholder="نام کاربری" class="input" />
@@ -27,7 +27,7 @@
             <input name="email" type="email" placeholder="ایمیل" class="input" />
             <input name="password1" type="password" placeholder="رمز عبور" class="input" />
             <input name="password2" type="password" placeholder="تکرار رمز عبور" class="input" />
-            <button class="btn">ثبت نام</button>
+            <button class="btn" type="submit">ثبت نام</button>
             <p class="sociallogin">ثبت نام با</p>
 
             <div class="social">
@@ -42,13 +42,13 @@
         <!-- Sign In -->
         <div class="container__form container--signin">
 
-          <form action="#" method="post" class="form" id="form2">
+          <form method="post" action="{% url 'profile:user_login' %}" >
               {% csrf_token %}
             <h2 class="form__title">ورود</h2>
             <input name="username_or_email_login" type="text" placeholder="نام کاربری یا ایمیل" class="input" />
             <input type="password" placeholder="رمز عبور" class="input" />
             <a href="#" class="link"> فراموشی رمز عبور</a>
-            <button class="btn">ورود</button>
+            <input class="btn" type="submit" value="ورود">
 
           </form>
         </div>

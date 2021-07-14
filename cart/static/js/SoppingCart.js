@@ -30,7 +30,7 @@ $(".promo-code-cta").click(function () {
           console.log(dataResult)
         //if (dataResult.statusCode == 200) {
           if (dataResult['status'] == 200) {
-          console.log(dataResult['price'])
+          console.log(dataResult['value'])
           var after_apply = $("#basket-total").val() - dataResult['price'];
           console.log(after_apply)
           $("#basket-total").val(after_apply);

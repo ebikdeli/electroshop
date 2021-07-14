@@ -67,7 +67,7 @@ def cart_discount_coupon(request):
             print('oh noooooo')
             return JsonResponse({'error': 'کد اشتباه است', 'status': 201}, status=201, safe=False)
         if not discount_code.is_valid:
-            return JsonResponse({'error': 'ین کد قبلا استفاده شده', 'status': 201}, status=201, safe=False)
+            return JsonResponse({'error': 'این کد قبلا استفاده شده', 'status': 201}, status=201, safe=False)
         if discount_code.percent:
             pass
         if discount_code.value:
