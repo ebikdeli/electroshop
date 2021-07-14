@@ -115,6 +115,7 @@
                     <a class="btn btn-info" target="__blank" href="{% url 'profile:edit_profile' username=request.user.username %}">ویرایش مشخصات</a>
                   </div>
                 </div>
+                  <h1><a href="{% url 'profile:user_logout' username=request.user.username %}">User logout</a></h1>
               </div>
             </div>
           </div>

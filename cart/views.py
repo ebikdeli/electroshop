@@ -6,6 +6,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from profile.models import Profile
+from cart.models import DiscountCode
 from cart.forms import ChangeCart, CouponCode
 
 
@@ -55,9 +56,22 @@ def cart_clean(request, username):
 @csrf_exempt
 def cart_discount_coupon(request):
     if request.is_ajax and request.method == 'GET':
-        print('ok')
-        print(request.GET['coupon_code'])
-        return JsonResponse({'price': 30000, 'status': 200}, status=200, safe=False)
+        recv_data = request.GET
+        raw_data = dict(recv_data)
+        print(raw_data)
+        cuopon_code = request.GET['coupon_code']
+        print(cuopon_code)
+        try:
+            discount_code = DiscountCode.objects.get(code=cuopon_code)
+        except DiscountCode.DoesNotExist:
+            print('oh noooooo')
+            return JsonResponse({'error': 'کد اشتباه است', 'status': 201}, status=201, safe=False)
+        if not discount_code.is_valid:
+            return JsonResponse({'error': 'این کد قبلا استفاده شده', 'status': 201}, status=201, safe=False)
+        if discount_code.percent:
+            pass
+        if discount_code.value:
+            return JsonResponse({'value': discount_code.value, 'status': 200}, status=200, safe=False)
     else:
         print('holl')
-        return JsonResponse({'error': 'no good happening'}, status=201, safe=False)
+        return JsonResponse({'error': 'خطایی در سمت سرور پیش آمده', 'status': 401}, status=401, safe=False)
