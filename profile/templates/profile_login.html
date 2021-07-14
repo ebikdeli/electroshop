@@ -21,7 +21,7 @@
 
         <div class="container__form container--signup">
 
-          <form method="post" action="{% url 'profile:user_signup' %}" class="form" id="form1">
+          <form method="post" action="{% url 'profile:user_signup' %}" class="form">
               {% csrf_token %}
             <h2 class="form__title">ثبت نام</h2>
             <input name="username" type="text" placeholder="نام کاربری" class="input" required />
@@ -45,7 +45,7 @@
 
         <div class="container__form container--signin">
 
-          <form method="post" action="{% url 'profile:user_login' %}">
+          <form method="post" action="{% url 'profile:user_login' %}" class="form">
               {% csrf_token %}
             <h2 class="form__title">ورود</h2>
             <input type="text" name="username_or_email_login" placeholder="نام کاربری یا ایمیل" class="input" required />

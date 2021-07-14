@@ -1,5 +1,6 @@
 {% extends 'shop/templates/index.html' %}
 {% load static %}
+{% load multiple %}
 {% block header %}{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'cart/static/css/ShoppinCart.css' %}" />
@@ -43,9 +44,9 @@
               </div>
               <div class="price">{{ product_obj.price }}</div>
               <div class="quantity">
-                <input type="number" value="1" min="1" class="quantity-field" />
+                <input type="number" value={{ number }} min="1" class="quantity-field" />
               </div>
-              <div class="subtotal"></div>
+              <div class="subtotal">{{ product_obj.price|multiple:number }}</div>
               <div class="remove">
                 <button>حذف</button>
               </div>
@@ -59,7 +60,7 @@
               <div class="summary-total-items"><span class="total-items"></span> تعداد محصولات انتخاب شده</div>
               <div class="summary-subtotal">
                 <div class="subtotal-title">قیمت</div>
-                <div class="subtotal-value final-value" id="basket-subtotal"></div>
+                <div class="subtotal-value final-value" id="basket-subtotal">{{ cart.total_price }}</div>
                 <div class="summary-promo hide">
                   <div class="promo-title">تخفیف</div>
                   <div class="promo-value final-value" id="basket-promo"></div>
@@ -67,7 +68,7 @@
               </div>
               <div class="summary-total">
                 <div class="total-title">جمع کل</div>
-                <div class="total-value final-value" id="basket-total"></div>
+                <div class="total-value final-value" id="basket-total">{{ cart.total_price }}</div>
                 <div class="basket-module">
                   <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field" />
                   <button class="promo-code-cta">اعمال تخفیف</button>
