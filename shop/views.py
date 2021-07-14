@@ -26,6 +26,7 @@ def index(request):
         request.user.profile
 
     except Profile.DoesNotExist:
+        print('why profile not exist?')
         return redirect('profile:edit_profile', username=request.user.username)
     except AttributeError:
         pass

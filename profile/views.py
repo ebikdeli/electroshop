@@ -71,6 +71,7 @@ def user_login(request):
             except User.DoesNotExist:
                 print('user not exist!')
                 messages.add_message(request, messages.ERROR, 'اطلاعات وارد شده اشتباه است!')
+                return redirect('profile:login_signup')
     else:
         return redirect('profile:login_signup')
 

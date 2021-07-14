@@ -16,17 +16,19 @@
 <body>
     <div class="col-xl-12 col">
       <div class="container right-panel-active">
+
         <!-- Sign Up -->
+
         <div class="container__form container--signup">
 
           <form method="post" action="{% url 'profile:user_signup' %}" class="form" id="form1">
               {% csrf_token %}
             <h2 class="form__title">ثبت نام</h2>
-            <input name="username" type="text" placeholder="نام کاربری" class="input" />
+            <input name="username" type="text" placeholder="نام کاربری" class="input" required />
             <!-- <input type="text" placeholder="نوع خودرو: مثال اسکانیا" class="input" /> -->
-            <input name="email" type="email" placeholder="ایمیل" class="input" />
-            <input name="password1" type="password" placeholder="رمز عبور" class="input" />
-            <input name="password2" type="password" placeholder="تکرار رمز عبور" class="input" />
+            <input name="email" type="email" placeholder="ایمیل" class="input" required />
+            <input name="password1" type="password" placeholder="رمز عبور" class="input" required />
+            <input name="password2" type="password" placeholder="تکرار رمز عبور" class="input" required />
             <button class="btn" type="submit">ثبت نام</button>
             <p class="sociallogin">ثبت نام با</p>
 
@@ -40,13 +42,14 @@
         </div>
 
         <!-- Sign In -->
+
         <div class="container__form container--signin">
 
-          <form method="post" action="{% url 'profile:user_login' %}" >
+          <form method="post" action="{% url 'profile:user_login' %}">
               {% csrf_token %}
             <h2 class="form__title">ورود</h2>
-            <input name="username_or_email_login" type="text" placeholder="نام کاربری یا ایمیل" class="input" />
-            <input type="password" placeholder="رمز عبور" class="input" />
+            <input type="text" name="username_or_email_login" placeholder="نام کاربری یا ایمیل" class="input" required />
+            <input type="password" name="password" placeholder="رمز عبور" class="input" required />
             <a href="#" class="link"> فراموشی رمز عبور</a>
             <input class="btn" type="submit" value="ورود">
 
@@ -66,8 +69,11 @@
         </div>
       </div>
     </div>
+    {% for message in messages %}
+        <br><br><br><br><h2>{{ message }}</h2>
+    {% endfor %}
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
     <script src="{% static 'shop/static/js/script.js' %}"></script>
     <script src="{% static 'shop/static/js/uikit-icons.min.js' %}"></script>
     <script src="{% static 'shop/static/js/uikit.min.js' %}"></script>
