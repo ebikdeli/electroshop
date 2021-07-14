@@ -1,4 +1,14 @@
 /* Set values + misc */
+$(document).ready(function () {
+  $("#one").load("../test.json", function () {
+    alert("Load test");
+  });
+});
+////../test.html ====> ajax link
+{
+  /* <p id="one"></p> add to price class name in html page */
+}
+
 var promoCode;
 var promoPrice;
 var fadeTime = 300;
@@ -24,6 +34,7 @@ $(".promo-code-cta").click(function () {
       url: "http://127.0.0.1:8000/cart/coupon/valid/", ///////enter url/////
       data: {
         coupon_code: $("#promo-code").val(),
+          basket_total: $("#basket-total").val(),
       },
       success: function (dataResult) {
         //var dataResult = JSON.parse(dataResult);
@@ -31,7 +42,8 @@ $(".promo-code-cta").click(function () {
         //if (dataResult.statusCode == 200) {
           if (dataResult['status'] == 200) {
           console.log(dataResult['value'])
-          var after_apply = $("#basket-total").val() - dataResult['price'];
+          var after_apply = $('#basket-total').val() - dataResult['price'];
+          console.log('basket-total tag: ', $('#basket-total').val())
           console.log(after_apply)
           $("#basket-total").val(after_apply);
           // $('#apply').hide();
@@ -129,7 +141,8 @@ function recalculateCart(onlyTotal) {
 function updateQuantity(quantityInput) {
   /* Calculate line price */
   var productRow = $(quantityInput).parent().parent();
-  var price = parseFloat(productRow.children(".price").text());
+  var price = parseFloat(productRow.children(".price").text()) * 1000000;
+  console.log('price: ', price)
   var quantity = $(quantityInput).val();
   var linePrice = price * quantity;
 
