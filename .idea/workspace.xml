@@ -1,71 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3393aaa4-20e5-444c-8568-252a65212788" name="Default Changelist" comment="order created">
+    <list default="true" id="5e975f14-e043-49d5-acfc-0fdfd9a33c34" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkout/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkout/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electroshop/settings/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/electroshop/settings/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendmail/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendmail/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/static/js/SoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/cart/static/js/SoppingCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/electroshop/settings/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3336">
+              <caret line="140" column="27" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart_view.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cart/templates/cart_view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="94" column="47" lean-forward="true" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoppingCart.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cart/static/js/SoppingCart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1s56WH0nlmywO9OJCo9ty6b1KEj" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/user_activity/admin.py" />
+        <option value="$PROJECT_DIR$/profile/admin.py" />
+        <option value="$PROJECT_DIR$/electroshop/urls.py" />
+        <option value="$PROJECT_DIR$/user_activity/forms.py" />
+        <option value="$PROJECT_DIR$/user_activity/models.py" />
+        <option value="$PROJECT_DIR$/checkout/discount_processor.py" />
+        <option value="$PROJECT_DIR$/cart/context_processor.py" />
+        <option value="$PROJECT_DIR$/profile/models.py" />
+        <option value="$PROJECT_DIR$/cart/models.py" />
+        <option value="$PROJECT_DIR$/shop/templatetags/modulus_.py" />
+        <option value="$PROJECT_DIR$/shop/static/css/style.css" />
+        <option value="$PROJECT_DIR$/shop/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/profile/templates/profile_login.html" />
+        <option value="$PROJECT_DIR$/electroshop/settings/base.py" />
+        <option value="$PROJECT_DIR$/shop/wagtail_hooks.py" />
+        <option value="$PROJECT_DIR$/shop/models.py" />
+        <option value="$PROJECT_DIR$/shop/admin.py" />
+        <option value="$PROJECT_DIR$/shop/templates/index.html" />
+        <option value="$PROJECT_DIR$/shop/views.py" />
+        <option value="$PROJECT_DIR$/shop/templates/shop_category.html" />
+        <option value="$PROJECT_DIR$/shop/templates/shop_product_detail.html" />
+        <option value="$PROJECT_DIR$/checkout/templates/checkout_success_pay.html" />
+        <option value="$PROJECT_DIR$/profile/urls.py" />
+        <option value="$PROJECT_DIR$/profile/views.py" />
+        <option value="$PROJECT_DIR$/checkout/views.py" />
+        <option value="$PROJECT_DIR$/profile/templates/profile_edit.html" />
+        <option value="$PROJECT_DIR$/profile/templates/profile_view.html" />
+        <option value="$PROJECT_DIR$/cart/static/css/ShoppinCart.css" />
+        <option value="$PROJECT_DIR$/shop/urls.py" />
+        <option value="$PROJECT_DIR$/cart/urls.py" />
+        <option value="$PROJECT_DIR$/cart/forms.py" />
+        <option value="$PROJECT_DIR$/cart/templates/cart_view.html" />
+        <option value="$PROJECT_DIR$/checkout/templates/checkout_checkout.html" />
+        <option value="$PROJECT_DIR$/cart/views.py" />
+        <option value="$PROJECT_DIR$/cart/static/js/SoppingCart.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="24" />
+    <option name="y" value="8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="electroshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="electroshop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="electroshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="electroshop" type="462c0819:PsiDirectoryNode" />
+              <item name="cart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="electroshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="electroshop" type="462c0819:PsiDirectoryNode" />
+              <item name="cart" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bigfin/bigfin" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="pyconsole" />
-  </component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myIpythonEnabled" value="false" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\CODES\PYTHON\Django\electroshop\electroshop\blog\templates\blog" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\cart\static\css" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\CODES\PYTHON\Django\electroshop\electroshop\profile\templates" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\cart\static\images" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\cart\static\js" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\profile\static\css" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\checkout\static\css" />
+      <recent name="C:\CODES\Python\Django\Electroshop\electroshop\profile\static\image" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -75,7 +225,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\CODES\PYTHON\Django\electroshop\electroshop_venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\CODES\Python\Django\Electroshop\electroshop_venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -89,7 +239,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="electroshop" type="Python.DjangoServer" factoryName="Django server">
       <module name="electroshop" />
@@ -99,7 +248,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="electroshop.settings.dev" />
       </envs>
-      <option name="SDK_HOME" value="C:\CODES\PYTHON\Django\electroshop\electroshop_venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\CODES\Python\Django\Electroshop\electroshop_venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -113,7 +262,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -121,7 +269,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3393aaa4-20e5-444c-8568-252a65212788" name="Default Changelist" comment="" />
+      <changelist id="5e975f14-e043-49d5-acfc-0fdfd9a33c34" name="Default" comment="" />
       <created>1620150132815</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -192,28 +340,7 @@
       <workItem from="1623554885675" duration="7758000" />
       <workItem from="1623577380758" duration="6056000" />
       <workItem from="1623590328206" duration="6589000" />
-      <workItem from="1623608717188" duration="5341000" />
-      <workItem from="1623655015760" duration="731000" />
-      <workItem from="1623659475100" duration="1005000" />
-      <workItem from="1623675096517" duration="652000" />
-      <workItem from="1623691132614" duration="262000" />
-      <workItem from="1623692557769" duration="1602000" />
-      <workItem from="1623699209067" duration="1668000" />
-      <workItem from="1623742147267" duration="598000" />
-      <workItem from="1623827783951" duration="6744000" />
-      <workItem from="1623849929894" duration="4101000" />
-      <workItem from="1623860735187" duration="4211000" />
-      <workItem from="1623946311288" duration="2706000" />
-      <workItem from="1624018049017" duration="5913000" />
-      <workItem from="1624108185697" duration="4774000" />
-      <workItem from="1624206224961" duration="36000" />
-      <workItem from="1624349293104" duration="1604000" />
-      <workItem from="1624382902330" duration="118000" />
-      <workItem from="1624428844045" duration="1559000" />
-      <workItem from="1624473879958" duration="629000" />
-      <workItem from="1624513455069" duration="11972000" />
-      <workItem from="1624528314051" duration="478000" />
-      <workItem from="1624536882924" duration="2084000" />
+      <workItem from="1623608717188" duration="5158000" />
     </task>
     <task id="LOCAL-00001" summary="wagtail initialized">
       <created>1620155901871</created>
@@ -257,101 +384,624 @@
       <option name="project" value="LOCAL" />
       <updated>1622898211248</updated>
     </task>
-    <task id="LOCAL-00007" summary="cart and shop just created">
-      <created>1623614053387</created>
+    <task id="LOCAL-00007" summary="index.html">
+      <created>1624598636698</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1623614053387</updated>
+      <updated>1624598636698</updated>
     </task>
-    <task id="LOCAL-00008" summary="order created">
-      <created>1624428909111</created>
+    <task id="LOCAL-00008" summary="simple richtext added">
+      <created>1624744286518</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1624428909111</updated>
+      <updated>1624744286518</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="TinyMCE implemented">
+      <created>1624783019954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624783019954</updated>
+    </task>
+    <task id="LOCAL-00010" summary="index.html">
+      <created>1624803039891</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624803039891</updated>
+    </task>
+    <task id="LOCAL-00011" summary="product logo and category background picture implemented">
+      <created>1624959841829</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1624959841829</updated>
+    </task>
+    <task id="LOCAL-00012" summary="'profile' model circular import error fixed&#10;'cart' context processor AttibuteError fixed">
+      <created>1624960048889</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624960048889</updated>
+    </task>
+    <task id="LOCAL-00013" summary="'user_activity' QuillField fixed">
+      <created>1624960255003</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624960255003</updated>
+    </task>
+    <task id="LOCAL-00014" summary="discount implemented successfully">
+      <created>1624987152147</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1624987152147</updated>
+    </task>
+    <task id="LOCAL-00015" summary="'shop/templatetags/modulus' created">
+      <created>1625035742445</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1625035742445</updated>
+    </task>
+    <task id="LOCAL-00016" summary="shop view updated">
+      <created>1625036946483</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1625036946483</updated>
+    </task>
+    <task id="LOCAL-00017" summary="shop index updated">
+      <created>1625037055879</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1625037055879</updated>
+    </task>
+    <task id="LOCAL-00018" summary="'category_background_picture' fixed&#10;index.html updated">
+      <created>1625052778988</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625052778988</updated>
+    </task>
+    <task id="LOCAL-00019" summary="index.html completed">
+      <created>1625063825894</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1625063825894</updated>
+    </task>
+    <task id="LOCAL-00020" summary="index.html links updated">
+      <created>1625149080271</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1625149080271</updated>
+    </task>
+    <task id="LOCAL-00021" summary="login.html template updated">
+      <created>1625222955247</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1625222955247</updated>
+    </task>
+    <task id="LOCAL-00022" summary="'base.py' completed">
+      <created>1625406110807</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1625406110807</updated>
+    </task>
+    <task id="LOCAL-00023" summary="STATICFILESDIRS fixed&#10;login page fixed">
+      <created>1625580858092</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1625580858124</updated>
+    </task>
+    <task id="LOCAL-00024" summary="'Camera model' and its admin &amp; wagtail dependencies added">
+      <created>1625656632511</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1625656632511</updated>
+    </task>
+    <task id="LOCAL-00025" summary="'checkout_html' and 'success_pay.html' updated">
+      <created>1625751896495</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1625751896495</updated>
+    </task>
+    <task id="LOCAL-00026" summary="'cart_view.html' js, Styles and images added">
+      <created>1625771889502</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1625771889502</updated>
+    </task>
+    <task id="LOCAL-00027" summary="category detail and related configs implemented">
+      <created>1625844859903</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1625844859903</updated>
+    </task>
+    <task id="LOCAL-00028" summary="login.html template updated_2">
+      <created>1625845273913</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1625845273913</updated>
+    </task>
+    <task id="LOCAL-00029" summary="'shop_product_detail.html' comment section updated">
+      <created>1625845976022</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1625845976022</updated>
+    </task>
+    <task id="LOCAL-00030" summary="'checkout_success_pay.html' updated with 'save' button">
+      <created>1625846674137</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1625846674137</updated>
+    </task>
+    <task id="LOCAL-00031" summary="'checkout_checkout.html' updated">
+      <created>1625848636845</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1625848636845</updated>
+    </task>
+    <task id="LOCAL-00032" summary="'profile_edit.html' edited heavily">
+      <created>1625849611639</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1625849611639</updated>
+    </task>
+    <task id="LOCAL-00033" summary="'profile_view.html' and profile_view implemented nicely!">
+      <created>1625863875171</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1625863875171</updated>
+    </task>
+    <task id="LOCAL-00034" summary="'cart_view.html' updated">
+      <created>1625908968360</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1625908968360</updated>
+    </task>
+    <task id="LOCAL-00035" summary="'cart_coupon' created and basically worked">
+      <created>1625928276203</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1625928276203</updated>
+    </task>
+    <task id="LOCAL-00036" summary="'ShoppingCart.js' bug fixed&#10;'checkout_checkout.html' print section fixed">
+      <created>1625935344039</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1625935344039</updated>
+    </task>
+    <task id="LOCAL-00037" summary="'ShoppingCart.js' bug fixed_2&#10;'checkout_checkout.html' print section fixed_2">
+      <created>1625939071659</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1625939071659</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32996634" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50107414" side_tool="true" weight="0.32996634" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32996634" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.22446689" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989259" visible="true" weight="0.32996634" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946293" weight="0.24691358" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19763695" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32975295" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32975295" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="wagtail initialized" />
-    <MESSAGE value="django-countries added" />
-    <MESSAGE value="Base Models created" />
-    <MESSAGE value="shop, cart and social-login added" />
-    <MESSAGE value="celery and sendmail setup completed" />
-    <MESSAGE value="cart and shop just created" />
-    <MESSAGE value="order created" />
-    <option name="LAST_COMMIT_MESSAGE" value="order created" />
+    <MESSAGE value="'user_activity' QuillField fixed" />
+    <MESSAGE value="discount implemented successfully" />
+    <MESSAGE value="'shop/templatetags/modulus' created" />
+    <MESSAGE value="shop view updated" />
+    <MESSAGE value="shop index updated" />
+    <MESSAGE value="'category_background_picture' fixed&#10;index.html updated" />
+    <MESSAGE value="index.html completed" />
+    <MESSAGE value="index.html links updated" />
+    <MESSAGE value="login.html template updated" />
+    <MESSAGE value="'base.py' completed" />
+    <MESSAGE value="STATICFILESDIRS fixed&#10;login page fixed" />
+    <MESSAGE value="'Camera model' and its admin &amp; wagtail dependencies added" />
+    <MESSAGE value="'checkout_html' and 'success_pay.html' updated" />
+    <MESSAGE value="'cart_view.html' js, Styles and images added" />
+    <MESSAGE value="category detail and related configs implemented" />
+    <MESSAGE value="login.html template updated_2" />
+    <MESSAGE value="'shop_product_detail.html' comment section updated" />
+    <MESSAGE value="'checkout_success_pay.html' updated with 'save' button" />
+    <MESSAGE value="'checkout_checkout.html' updated" />
+    <MESSAGE value="'profile_edit.html' edited heavily" />
+    <MESSAGE value="'profile_view.html' and profile_view implemented nicely!" />
+    <MESSAGE value="'cart_view.html' updated" />
+    <MESSAGE value="'cart_coupon' created and basically worked" />
+    <MESSAGE value="'ShoppingCart.js' bug fixed&#10;'checkout_checkout.html' print section fixed" />
+    <MESSAGE value="'ShoppingCart.js' bug fixed_2&#10;'checkout_checkout.html' print section fixed_2" />
+    <option name="LAST_COMMIT_MESSAGE" value="'ShoppingCart.js' bug fixed_2&#10;'checkout_checkout.html' print section fixed_2" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="261" y="0" key="#Intentions" timestamp="1624349660796">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="261" y="0" key="#Intentions/0.0.1536.824@0.0.1536.824" timestamp="1624349660796" />
-    <state x="219" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620150524244">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="219" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1620150524244" />
-    <state x="466" y="232" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1623699282736">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="466" y="232" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1623699282736" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1623583596000">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1623583596000" />
-    <state x="495" y="108" key="FileChooserDialogImpl" timestamp="1624429145684">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="495" y="108" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1624429145684" />
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom" timestamp="1624538980743">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
-    <state width="1481" height="169" key="GridCell.Tab.0.center" timestamp="1624538980743">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
-    <state width="1481" height="169" key="GridCell.Tab.0.left" timestamp="1624538980743">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
-    <state width="1481" height="169" key="GridCell.Tab.0.right" timestamp="1624538980743">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1481" height="169" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1624538980743" />
-    <state x="160" y="0" key="SettingsEditor" timestamp="1622877524903">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="160" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622877524903" />
-    <state x="543" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624428884004">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="543" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1624428884004" />
-    <state width="750" height="535" key="javadoc.popup" timestamp="1621967007790">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="750" height="535" key="javadoc.popup/0.0.1536.824@0.0.1536.824" timestamp="1621967007790" />
-    <state x="347" y="0" width="840" height="822" key="search.everywhere.popup" timestamp="1624022632223">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="347" y="0" width="840" height="822" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1624022632223" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/shop/static/images/mainboard.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/static/css/uikit-rtl.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/profile_create.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/static/css/styles.css" />
+    <entry file="file://$PROJECT_DIR$/social_login/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1273" column="3" selection-start-line="1273" selection-start-column="3" selection-end-line="1273" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/social_login/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/static/image/loginwallpaper.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/static/image/header.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3293">
+          <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/static/images/header.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/electroshop/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3336">
+          <caret line="140" column="27" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/wagtail_hooks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payment/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/static/images/left.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/static/images/cart.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/static/js/anime.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop_product_list.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop_index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop_category.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/shop_product_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1043">
+          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_activity/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout/templates/checkout_success_pay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="104" column="10" lean-forward="true" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/static/css/profileEdit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-659" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/static/css/profile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-773" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/profile_login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1872">
+          <caret line="88" column="15" selection-start-line="88" selection-start-column="15" selection-end-line="88" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/profile_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="17" column="100" selection-start-line="17" selection-start-column="100" selection-end-line="17" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/templates/profile_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="27" column="100" selection-start-line="27" selection-start-column="100" selection-end-line="27" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="85" column="6" selection-start-line="85" selection-start-column="6" selection-end-line="85" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/static/css/ShoppinCart.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="85" column="12" lean-forward="true" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout/static/css/CheckoutForm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkout/templates/checkout_checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/templates/cart_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="94" column="47" lean-forward="true" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart/static/js/SoppingCart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

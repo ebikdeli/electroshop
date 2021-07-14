@@ -6,13 +6,17 @@
      <link rel="stylesheet" href="{% static 'checkout/static/css/CheckoutForm.css' %}" />
 {% endblock %}
 
+{% block header %}
+{% endblock %}
+
+
 {% block title %}{{ profile.user.username }} purchase checkout{% endblock %}
 
 {% block content %}
     <div class="container">
     {% if cart.items %}
       <div class="row">
-        <div class="col-xl-4">
+        <div class="col-xl-4 col">
           <div class="right">
             <div class="rightheader">
               <p>محصولات انتخاب شده</p>
@@ -32,11 +36,11 @@
           <div class="BTN">
             <button><span class="material-icons"> chevron_left </span><a href="{% url 'shop:index' %}">بازگشت</a></button>
             <button><span class="material-icons"> delete </span><a href="{% url 'cart:cart_clean' username=request.user.username %}">حذف</a></button>
-            <button onclick="window.print()"><span class="material-icons"> save </span><a href="">ذخیره</a></button>
+            <button onclick="window.print()"><span class="material-icons"> save </span><a>ذخیره</a></button>
             <button><span class="material-icons"> credit_card </span><a href="{% url 'checkout:pay' username=profile.user.username %}">پرداخت</a></button>
           </div>
         </div>
-        <div class="col-xl-8">
+        <div class="col-xl-8 col">
           <div class="left">
             <table class="table table-hover">
               <thead>
