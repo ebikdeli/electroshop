@@ -70,6 +70,7 @@ class Cart(models.Model):
             self.total_number = 0
             self.total_price = 0
             self.price_after_discount = 0
+
         super().save(*args, **kwargs)
 
 
