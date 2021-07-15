@@ -29,14 +29,30 @@ $(document).ready(function () {
 $(".promo-code-cta").click(function () {
   /////////test ajax////////////
   if ($(".basket-module").val() !== " ") {
+
+    let item_types = Number($("#item_type_number").val());
+
+    let data1 = {}
+    for(let i = 1; i<=item_types; i++){
+          console.log("product_price"+String(i), $("#price"+i).text());
+        }
+    for(let i = 1; i<=item_types; i++){
+          data1["product_price"+String(i)] = $("#price"+i).text()
+        }
+    let data2 = {"coupon_code": $("#promo-code").val(),
+        "basket_total": $("#basket-total").text(),  //basket_total: $("#basket-total").val()   <--- IT'S WRONG!
+        "some_data": 'hello',}
+    console.log(item_types);
     $.ajax({
       type: "GET",
       url: "http://127.0.0.1:8000/cart/coupon/valid/", ///////enter url/////
-      data: {
-        coupon_code: $("#promo-code").val(),
-        basket_total: $("#basket-total").text(),  //basket_total: $("#basket-total").val()   <--- IT'S WRONG!
+      data:Object.assign(data1, data2),
+      /*data: {
+        "coupon_code": $("#promo-code").val(),
+        "basket_total": $("#basket-total").text(),  //basket_total: $("#basket-total").val()   <--- IT'S WRONG!
+        "some_data": 'hello',*/
         //basket_total: $("#basket-total").html()  <--- IT'S OK!
-      },
+//      },
       success: function (dataResult) {
         //var dataResult = JSON.parse(dataResult);
         //if (dataResult.statusCode == 200) {

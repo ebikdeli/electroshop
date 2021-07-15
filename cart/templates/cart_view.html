@@ -15,6 +15,7 @@
     </nav>
     <div class="container">
     {% if cart.items %}
+        <input type="hidden" id="item_type_number" value="{{ cart.items|length }}">
       <div class="row">
         <div class="col-xl-12">
           <div class="basket">
@@ -42,7 +43,7 @@
                   <p>سری ساخت 124183</p>
                 </div>
               </div>
-              <div class="price">{{ product_obj.end_price }}</div>
+              <div class="price" id="price{{ forloop.counter }}">{{ product_obj.end_price }}</div>
               <div class="quantity">
                 <input type="number" value={{ number }} min="1" class="quantity-field" />
               </div>

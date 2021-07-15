@@ -111,7 +111,7 @@ class Product(models.Model):
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
     tag = TaggableManager(blank=True)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
