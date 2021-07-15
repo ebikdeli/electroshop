@@ -101,6 +101,7 @@ class Product(models.Model):
                                          default=0)
     special_offer = models.BooleanField(default=False)
     picture = models.ImageField(blank=True, upload_to=product_directory_path)
+    end_price = models.PositiveIntegerField(default=0)
     description = RichTextField(blank=True)
     review = RichTextField(blank=True)
     tag = TaggableManager(blank=True)

@@ -34,6 +34,8 @@ class Cart(models.Model):
         total_discount = 0
         product_list = []
 
+        profile_discount = 0
+
         if self.items:
             for product_id, number in self.items.items():
                 product_list.append(Product.objects.get(product_id=product_id))
@@ -42,16 +44,25 @@ class Cart(models.Model):
 
                 # 'total_discount' calculates discount only for one item for each product type in the cart
                 if product_list[-1].discount_percent or product_list[-1].discount_value:
-                    product_list[-1].discount_percent = discount_hpercent(product_list[-1].discount_percent)
+                    if product_list[-1].discount_percent:
+                        product_list[-1].discount_percent = discount_hpercent(product_list[-1].discount_percent)
                     total_discount += product_list[-1].discount_value + (
                             product_list[-1].price * product_list[-1].discount_percent)
+                    # If we want to calculate discount for all items for each product type: total_discount *= number
+                    total_discount *= number
+
+                # If USER has discount on his/her account
+                if self.profile.discount_value or self.profile.discount_percent:
+                    if self.profile.discount_percent:
+                        profile_discount = discount_hpercent(self.profile.discount_percent)
+                    total_discount += self.profile.discount_value
 
             [self.product.add(prod) for prod in product_list]
             self.total_price = total_price
             self.total_number = total_number
-            if self.profile.discount_percent or self.profile.discount_value:
-                total_discount += self.profile.discount_value + (
-                    self.total_price * self.profile.discount_percent)
+
+            if profile_discount:
+                total_discount += profile_discount
 
             self.price_after_discount = total_price - total_discount
         else:
