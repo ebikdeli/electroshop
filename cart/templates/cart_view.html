@@ -42,11 +42,11 @@
                   <p>سری ساخت 124183</p>
                 </div>
               </div>
-              <div class="price">{{ product_obj.price }}</div>
+              <div class="price">{{ product_obj.end_price }}</div>
               <div class="quantity">
                 <input type="number" value={{ number }} min="1" class="quantity-field" />
               </div>
-              <div class="subtotal">{{ product_obj.price|multiple:number }}</div>
+              <div class="subtotal">{{ product_obj.end_price|multiple:number }}</div>
               <div class="remove">
                 <button>حذف</button>
               </div>

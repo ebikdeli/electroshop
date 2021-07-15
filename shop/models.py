@@ -20,6 +20,12 @@ import os
 # CATEGORY_DEFAULT_BACKGROUND = os.path.join(settings.BASE_DIR, 'shop', 'static', 'images', 'mainboard.jpg')
 
 
+def discount_hpercent(value: float) -> float:
+    if value >= 1.0:
+        return value / 100
+    return value
+
+
 def founded_choice():
     min_year = 1900
     max_year = datetime.now().year
@@ -120,6 +126,10 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(f'{self.brand.name}_{self.name}')
+        if not self.end_price or (not self.discount_percent and not self.discount_value):
+            self.end_price = self.price
+        if self.discount_percent or self.discount_value:
+            self.end_price = self.price - (self.discount_value + (discount_hpercent(self.discount_percent) * self.price))
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):

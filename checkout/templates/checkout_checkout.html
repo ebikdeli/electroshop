@@ -62,7 +62,7 @@
                       <th scope="row">{{ forloop.counter }}</th>
                       <td>{{ product.brand.name }}_{{ product.name }}</td>
                       <td>{{ numbers }}</td>
-                      <td>{{ product.price|multiple:numbers }} تومان </td>
+                      <td>{{ product.end_price|multiple:numbers }} تومان </td>
                     </tr>
 
                     {% endif %}
@@ -76,8 +76,8 @@
             <thead>
               <tr>
                 <th scope="col"></th>
-                <th scope="col">جمع کل فاکتور</th>
-                <th scope="col">{{ cart.total_price }} تومان </th>
+                <th scope="col">جمع کل فاکتور(بعد از تخفیف)</th>
+                <th scope="col">{{ cart.price_after_discount }} تومان </th>
               </tr>
             </thead>
           </table>
