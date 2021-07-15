@@ -6,7 +6,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from profile.models import Profile
-from cart.models import DiscountCode
+from cart.models import DiscountCode, discount_hpercent
 from cart.forms import ChangeCart, CouponCode
 
 
@@ -63,6 +63,20 @@ def cart_discount_coupon(request):
         print(cuopon_code)
         try:
             discount_code = DiscountCode.objects.get(code=cuopon_code)
+            profile = request.user.profile
+
+            if discount_code.value:
+                profile.discount_value += discount_code.value
+                profile.save()
+
+            if discount_code.percent:
+                discount_percent = discount_hpercent(discount_code.percent)
+                profile.discount_percent += discount_percent
+
+                if profile.discount_percent >= 0.5:
+                    profile.discount_percent = 0.5
+                profile.save()
+
         except DiscountCode.DoesNotExist:
             print('oh noooooo')
             return JsonResponse({'error': 'کد اشتباه است', 'status': 201}, status=201, safe=False)
