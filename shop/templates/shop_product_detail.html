@@ -9,7 +9,7 @@
         <div class="col-xl-12 DETAIL">
           <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
             <div class="uk-card-media-left uk-cover-container">
-              <img class="detail" src="{{ product.picture.url }}" alt="" uk-cover />
+              <img class="detail" src="{% if product.picture %}{{ product.picture.url }}{% else %}{% endif %}" alt="تصویری وجود ندارد" uk-cover />
               <canvas width="600" height="400"></canvas>
             </div>
             <div>
@@ -39,6 +39,11 @@
                     </tr>
                   </tbody>
                 </table>
+                  <form method="post">
+                {% csrf_token %}
+                <input type="number" name="quantity" value="1" max="5">
+                <input type="submit" value="add to cart">
+            </form>
               </div>
             </div>
           </div>
@@ -97,6 +102,7 @@
             </div>
           </div>
         </li>
+
         <li>
           <h2>زیبایی در جلوه ی هنر</h2>
           <br />

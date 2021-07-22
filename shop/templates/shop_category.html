@@ -31,7 +31,7 @@
 
 
           <div class="Card">
-            <div class="Card-img" style="background-image: url({{ product.picture.url }})">
+            <div class="Card-img" style="background-image: url({% if product.picture %}{{ product.picture.url }}{% else %}{% static 'shop/static/images/mainboard.jpg' %}{% endif %})">
               <div class="overlay">
                 <div class="overlay-content">
                   <a href="{% url 'shop:product_detail' product_id=product.product_id %}">مشاهده مشخصات</a>
