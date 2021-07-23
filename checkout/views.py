@@ -53,7 +53,8 @@ def pay(request, username):
     url = 'https://api.idpay.ir/v1.1/payment'
     headers = {'Content-Type': 'application/json', 'X-API-KEY': '6a7f99eb-7c20-4412-a972-6dfb7cd253a4',
                'X-SANDBOX': '1'}
-    data = {'order_id': 100, 'amount': cart.price_after_discount * 10, 'name': profile.user.username,
+    pay_price = cart.price_after_discount * 10 if cart.price_after_discount <= 50000000 else 1001
+    data = {'order_id': 100, 'amount': pay_price, 'name': profile.user.username,
             'phone': profile.phone, 'mail': profile.user.email, 'desc': 'خرید از الکتروشاپ',
             'callback': callback}
     r = requests.post(url=url, json=data, headers=headers)

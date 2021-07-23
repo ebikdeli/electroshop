@@ -26,7 +26,7 @@
             {% comment%} This loop is for right section of the checkout page {% endcomment %}
               {% for product in cart.product.all %}
                       <div>
-                        <img src="{{ product.picture.url }}" width="50" height="50" />
+                        <img src="{% if product.picture %}{{ product.picture.url }}{% else %}{% static 'shop/static/images/header.jpg' %}{% endif %}" width="50" height="50" />
                         <span class="uk-text-middle">{{ product.brand.name }}_{{ product.name }}</span>
                       </div>
               {% endfor %}

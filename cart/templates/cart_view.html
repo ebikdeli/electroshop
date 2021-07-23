@@ -78,10 +78,8 @@
                 </div>
               </div>
               <div class="summary-checkout">
-                <button class="checkout-cta"><a href="{% url 'checkout:checkout' username=request.user.username %}">مشاهده فاکتور</a></button>
-              </div>
-            </div>
-          </aside>
+                <button class="checkout-cta"><a href="{% url 'checkout:checkout' username=request.user.username %}?price={{ cart.price_after_discount }}">مشاهده فاکتور</a></button>
+              </div></aside>
         </div>
       </div>
     {% else %}

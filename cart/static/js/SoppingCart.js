@@ -9,9 +9,9 @@ $(document).ready(function () {
   /* <p id="one"></p> add to price class name in html page */
 }
 
-var promoCode;
-var promoPrice;
-var fadeTime = 300;
+let promoCode;
+let promoPrice;
+const fadeTime = 300;
 
 /* Assign actions */
 $(".quantity input").change(function () {
@@ -55,8 +55,8 @@ $(".promo-code-cta").click(function () {
 //      },
       success: function (dataResult) {
         //var dataResult = JSON.parse(dataResult);
-        //if (dataResult.statusCode == 200) {
-          if (dataResult['status'] == 200) {
+        //if (dataResult.statusCode === 200) {
+          if (dataResult['status'] === 200) {
 
           let discount = Number(dataResult['value'] + 500000);
           let total_price = Number($('#basket-total').text());
@@ -73,7 +73,7 @@ $(".promo-code-cta").click(function () {
           // $('#edit').show();
           // $('#message').html("Promocode applied successfully !");
           alert("کد صحیح است");
-        } else if (dataResult['status'] == 201) {
+        } else if (dataResult['status'] === 201) {
             alert(dataResult['error'])
           //alert("کد اشتباه است 201 erorr");
           // $('#message').html("Invalid promocode !");
@@ -117,7 +117,7 @@ $(".promo-code-cta").click(function () {
 
 /* Recalculate cart */
 function recalculateCart(onlyTotal) {
-  var subtotal = 0;
+  let subtotal = 0;
 
   /* Sum up row totals */
   $(".basket-product").each(function () {
@@ -125,10 +125,10 @@ function recalculateCart(onlyTotal) {
   });
 
   /* Calculate totals */
-  var total = subtotal;
+  let total = subtotal;
 
   // If there is a valid promoCode, and subtotal < 10 subtract from total
-  var promoPrice = parseFloat($(".promo-value").text());
+  let promoPrice = parseFloat($(".promo-value").text());
   if (promoPrice) {
     if (subtotal >= 10) {
       total -= promoPrice;
@@ -150,7 +150,7 @@ function recalculateCart(onlyTotal) {
     $(".final-value").fadeOut(fadeTime, function () {
       $("#basket-subtotal").html(subtotal.toFixed(0));
       $("#basket-total").html(total.toFixed(0));
-      if (total == 0) {
+      if (total === 0) {
         $(".checkout-cta").fadeOut(fadeTime);
       } else {
         $(".checkout-cta").fadeIn(fadeTime);
