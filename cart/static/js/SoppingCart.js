@@ -43,6 +43,7 @@ $(".promo-code-cta").click(function () {
         "basket_total": $("#basket-total").text(),  //basket_total: $("#basket-total").val()   <--- IT'S WRONG!
         "some_data": 'hello',}
     console.log(item_types);
+    // let URL = "http://127.0.0.1:8000/"
     $.ajax({
       type: "GET",
       url: "http://127.0.0.1:8000/cart/coupon/valid/", ///////enter url/////
@@ -75,6 +76,8 @@ $(".promo-code-cta").click(function () {
           alert("کد صحیح است");
         } else if (dataResult['status'] === 201) {
             alert(dataResult['error'])
+            // window.location.replace(URL)  windows.location.replace(someurl) redirect to some url we want!
+
           //alert("کد اشتباه است 201 erorr");
           // $('#message').html("Invalid promocode !");
         }
@@ -176,6 +179,18 @@ function updateQuantity(quantityInput) {
       $(this).text(linePrice.toFixed(0));
       recalculateCart();
       $(this).fadeIn(fadeTime);
+
+      console.log("quantity: ", $(quantityInput).val(), '  ', 'id: ', $(quantityInput).context.id, '  ', 'item_id: ', $(quantityInput).context.name)
+  $.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:8000/cart/" + $("#username").val() + "/" + $(quantityInput).context.name + "/change/",
+    data:{
+      'username': $("#username").val(),
+      'new_quantity': $(quantityInput).val(),
+      'item_id': $(quantityInput).context.name,
+    }
+  })
+
     });
   });
 
@@ -192,7 +207,7 @@ function updateSumItems() {
 }
 
 /* Remove item from cart */
-console.log($("#delete_button2").val(), '  ', $("#username").val())
+console.log($("#delete_button1").val(), '  ', $("#username").val())
 function removeItem(removeButton) {
   //removeButton is the plain button we click on! remember it...
   /* Remove row from DOM and recalculate cart total */

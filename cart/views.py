@@ -19,7 +19,7 @@ def cart_view(request, username):
 
 
 @login_required
-def cart_change_item(request, username, item_id=None):
+def cart_change_item(request, username, item_id):
     cart = User.objects.get(username=username).profile.profile_cart
     if request.method == 'POST':
         change_cart_form = ChangeCart(data=request.POST)
@@ -33,7 +33,14 @@ def cart_change_item(request, username, item_id=None):
             messages.add_message(request, messages.INFO, 'changes have implemented!')
             return redirect('cart:cart_view', username=username)
     else:
-        return redirect('cart:cart_view', username=request.user.username)
+        if request.is_ajax() and request.method == 'GET':
+            data = request.GET
+            print(data)
+            cart.items[data['item_id']] = int(data['new_quantity'])
+            cart.save()
+            return redirect('cart:cart_view', username=username)
+        else:
+            return redirect('cart:cart_view', username=request.user.username)
 
 
 @login_required

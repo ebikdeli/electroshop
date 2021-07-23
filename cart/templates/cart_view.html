@@ -46,7 +46,14 @@
               </div>
               <div class="price" id="price{{ forloop.counter }}">{{ product_obj.end_price }}</div>
               <div class="quantity">
-                <input type="number" value={{ number }} min="1" class="quantity-field" />
+                <input type="number" id="quantity{{ forloop.counter }}" name="{{ item_id }}"  value="{{ number }}" min="1" class="quantity-field" />
+                  {% comment %}
+                    - beside 'value' field, 'name' field is for sending some data to ajax request
+                    - 'price{{ forloop.counter }}' and 'quantity{{ forloop.counter }}' are for ajax loop!
+                    - There are many unused attribute fields in html tags we could use to send data to ajax...
+                    ... requests in javascripts. We must use "TagObject".context.<attribute_field_name> to get...
+                    ... field data. like this: $("#quantity2").context.name
+                  {% endcomment %}
               </div>
               <div class="subtotal">{{ product_obj.end_price|multiple:number }}</div>
               <div class="remove">
