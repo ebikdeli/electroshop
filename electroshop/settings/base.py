@@ -75,11 +75,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR),
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'shop', 'templates'),
-            os.path.join(BASE_DIR, 'cart', 'templates'),
-            os.path.join(BASE_DIR, 'profile', 'templates'),
-            os.path.join(BASE_DIR, 'checkout', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -131,11 +126,6 @@ USE_L10N = True
 USE_TZ = True
 
 # USE_THOUSAND_SEPARATOR = True
-
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR),
