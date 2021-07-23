@@ -163,12 +163,12 @@ function recalculateCart(onlyTotal) {
 /* Update quantity */
 function updateQuantity(quantityInput) {
   /* Calculate line price */
-  var productRow = $(quantityInput).parent().parent();
+  let productRow = $(quantityInput).parent().parent();
   //var price = parseFloat(productRow.children(".price").text()) * 1000000; // With thousand seprator
-  var price = parseFloat(productRow.children(".price").text()); // Without thousand seprator
+  let price = parseFloat(productRow.children(".price").text()); // Without thousand seprator
   console.log('price: ', price)
-  var quantity = $(quantityInput).val();
-  var linePrice = price * quantity;
+  let quantity = $(quantityInput).val();
+  let linePrice = price * quantity;
 
   /* Update line price display and recalc cart totals */
   productRow.children(".subtotal").each(function () {
@@ -184,7 +184,7 @@ function updateQuantity(quantityInput) {
 }
 
 function updateSumItems() {
-  var sumItems = 0;
+  let sumItems = 0;
   $(".quantity input").each(function () {
     sumItems += parseInt($(this).val());
   });
@@ -192,9 +192,17 @@ function updateSumItems() {
 }
 
 /* Remove item from cart */
+console.log($("#delete_button2").val(), '  ', $("#username").val())
 function removeItem(removeButton) {
-  /* Remove row from DOM and recalc cart total */
-  var productRow = $(removeButton).parent().parent();
+  //removeButton is the plain button we click on! remember it...
+  /* Remove row from DOM and recalculate cart total */
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:8000/cart/" + $("#username").val() + "/" + $(removeButton).val() + "/remove/",
+    })
+  let productRow = $(removeButton).parent().parent();
+  console.log("removeButton: ", productRow)
+  console.log(removeButton)
   productRow.slideUp(fadeTime, function () {
     productRow.remove();
     recalculateCart();

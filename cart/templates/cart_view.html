@@ -16,6 +16,7 @@
     <div class="container">
     {% if cart.items %}
         <input type="hidden" id="item_type_number" value="{{ cart.items|length }}">
+        <input type="hidden" id="username" value="{{ request.user.username }}">
       <div class="row">
         <div class="col-xl-12">
           <div class="basket">
@@ -49,7 +50,7 @@
               </div>
               <div class="subtotal">{{ product_obj.end_price|multiple:number }}</div>
               <div class="remove">
-                <button>حذف</button>
+                <button id="delete_button{{ forloop.counter }}" value="{{ item_id }}">حذف</button>
               </div>
             </div>
             {% endif %}

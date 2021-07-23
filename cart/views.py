@@ -37,7 +37,8 @@ def cart_change_item(request, username, item_id=None):
 
 
 @login_required
-def cart_remove_item(request, username, item_id=None):
+def cart_remove_item(request, username, item_id):
+    print(f'data recieved from ajax: username: {username}, item_id: {item_id}')
     cart = User.objects.get(username=username).profile.profile_cart
     del cart.items[item_id]
     cart.save()
