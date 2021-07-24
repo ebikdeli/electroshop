@@ -48,33 +48,29 @@ def user_login_signup(request):
 def user_signup(request):
     if request.method == 'POST':
         user_create_form = UserCreateForm(data=request.POST)
-        print(user_create_form)
-        print('something is not right here')
 
         if user_create_form.is_valid():
             try:
-                print('!!!!!!!!')
                 new_user = User.objects.create(
                     username=user_create_form.cleaned_data['username'],
                     password=user_create_form.cleaned_data['password1'],
                     email=user_create_form.cleaned_data['email']
                 )
-                print(f'new_user: {new_user}')
-                new_profile = Profile.objects.create(user=new_user,
-                                                     phone='09')
-                print(f'new_profile: {new_profile}')
-                new_cart = Cart.objects.create(profile=new_profile)
-                print(f'new_cart: {new_cart}')
-                # user_obj = authenticate(request, username=new_user.username, password=new_user.password)
-                login(request, new_user,  backend='django.contrib.auth.backends.ModelBackend')
-                print('everything is allright')
-                return redirect('profile:profile_view', username=new_user.username)
-
             except IntegrityError:
                 messages.add_message(request, messages.ERROR, 'نام کاربری مورد نظر شما قبلا ثبت شده')
                 return redirect('profile:login_signup')
+
+            new_profile = Profile.objects.create(user=new_user)
+            try:
+                Cart.objects.create(profile=new_profile)
+            except IntegrityError:
+                # Cart.objects.get(profile=new_profile)
+                pass
+
+            login(request, new_user,  backend='django.contrib.auth.backends.ModelBackend')
+            return redirect('profile:profile_view', username=new_user.username)
+
         else:
-            print('fucking shit')
             messages.add_message(request, messages.ERROR, 'اطلاعات را به درستی وارد کنید')
             return redirect('profile:login_signup')
 
@@ -85,8 +81,10 @@ def user_login(request):
 
         if user_auth_form.is_valid():
             user_auth = user_auth_form.cleaned_data
-            user = authenticate(request, username=user_auth['username_or_email_login'], password=user_auth['password'])
-            # user = User.objects.get(username=user_auth['username_or_email_login'], password=user_auth['password'])
+            print(user_auth)
+# user = authenticate(request, username=user_auth['username_or_email_login'], password=user_auth['password'])
+            user = User.objects.get(username=user_auth['username_or_email_login'], password=user_auth['password'])
+            print(user)
 
             if user is not None:
                 login(request, user, backend='django.contrib.auth.backends.ModelBackend')
@@ -125,6 +123,7 @@ def profile_edit(request, username):
     if request.method == 'POST':
         profile_edit_form = ProfileEditForm(data=request.POST, files=request.FILES)
         user_email_name_form = UserEmailNameForm(data=request.POST)
+        print('error: ', user_email_name_form.errors, '  ', profile_edit_form.errors)
         if profile_edit_form.is_valid() and user_email_name_form.is_valid():
             current_user = User.objects.get(username=username)
             current_user.first_name = user_email_name_form.cleaned_data['first_name']
@@ -159,7 +158,7 @@ def profile_edit(request, username):
         # email_form = EmailUserForm({'email': username}) if re.search(email_regex, username) else EmailUserForm()
         user = User.objects.get(username=username)
 
-        user_email_name_form = UserEmailNameForm({
+        user_email_name_form = UserEmailNameForm(initial={
                 'email': user.email if user.email else '',
                 'first_name': user.first_name if user.first_name else '',
                 'last_name': user.last_name if user.last_name else ''

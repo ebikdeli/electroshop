@@ -39,7 +39,7 @@ class Profile(models.Model):
                                          default=0)
     lifetime_orders_price = models.PositiveIntegerField(default=0)
     picture = models.ImageField(upload_to=customer_directory_path, blank=True)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     # likes
