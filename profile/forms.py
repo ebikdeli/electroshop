@@ -32,7 +32,9 @@ class ProfileEditForm(forms.ModelForm):
         fields = ['phone', 'address', 'picture', ]
 
 
-class EmailUserForm(forms.Form):
+class UserEmailNameForm(forms.Form):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
     email = forms.EmailField()
 
 

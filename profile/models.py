@@ -29,7 +29,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User,
                                 related_name='profile',
                                 on_delete=models.CASCADE)
-    phone = models.CharField(max_length=12)
+    phone = models.CharField(max_length=12, blank=True)
     address = models.TextField(blank=True)
     score = models.PositiveIntegerField(default=0)
     discount_value = models.PositiveIntegerField(default=0)

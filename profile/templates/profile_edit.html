@@ -40,12 +40,22 @@
               <div class="card-body">
                 <div class="row mb-3">
                   <div class="col-sm-3">
-                    <h6 class="mb-0">نام و نام خانوادگی</h6>
+                    <h6 class="mb-0">نام</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input type="text" class="form-control" />
+                    <input type="text" name="first_name" class="form-control" value="{{ request.user.first_name }}" />
                   </div>
                 </div>
+
+                  <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">نام خانوادگی</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input type="text" name="last_name" class="form-control" value="{{ request.user.last_name }}" />
+                  </div>
+                </div>
+
                 <div class="row mb-3">
                   <div class="col-sm-3">
                     <h6 class="mb-0">آدرس ایمل</h6>
@@ -59,7 +69,7 @@
                     <h6 class="mb-0">تلفن همراه</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input type="text" class="form-control" name="phone" value="{% if request.user.profile.phone %}{{ request.user.profile.phone }}{% else %}09...{% endif %}" />
+                    <input type="text" class="form-control" name="phone" value="{{ request.user.profile.phone }}" />
                   </div>
                 </div>
                 <div class="row mb-3">
