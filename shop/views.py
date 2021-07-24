@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from profile.models import Profile
 from shop.models import Category, Brand, Product
 from shop.forms import ProductQuantity
+from cart.models import Cart
 
 
 def index(request):
@@ -23,12 +24,18 @@ def index(request):
         categories = None
 
     try:
+        print('first try')
         request.user.profile
+
+    except TypeError:
+        print('what the hell')
 
     except Profile.DoesNotExist:
         print('why profile not exist?')
         return redirect('profile:edit_profile', username=request.user.username)
+
     except AttributeError:
+        # If user not logged, He/She become Anonymous and not logged in
         pass
 
     product_discounted_counter = 4

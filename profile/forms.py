@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
+# from django.contrib.auth.forms import UserCreationForm
 from profile.models import Profile
 
 
@@ -9,8 +10,20 @@ class ProfileCreateForm(forms.ModelForm):
         fields = ['phone', 'address', 'picture']
 
 
-class UserCreateForm(UserCreationForm):
+# class UserCreateForm(UserCreationForm):
+    # email = forms.EmailField()
+
+class UserCreateForm(forms.Form):
+    username = forms.CharField()
+    password1 = forms.CharField()
+    password2 = forms.CharField()
     email = forms.EmailField()
+
+    def clean_password2(self):
+        data = self.cleaned_data
+        if not data['password1'] == data['password2']:
+            raise ValidationError('پسوردها با هم یکی نیستند')
+        return data
 
 
 class ProfileEditForm(forms.ModelForm):

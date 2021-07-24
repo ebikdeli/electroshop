@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-AUTH_USER_MODEL = 'auth.User'
+# AUTH_USER_MODEL = 'auth.User'
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 

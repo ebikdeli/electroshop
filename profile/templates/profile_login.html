@@ -23,6 +23,7 @@
 
           <form method="post" action="{% url 'profile:user_signup' %}" class="form">
               {% csrf_token %}
+              <p>{{ user_create_form.errors }}</p>
             <h2 class="form__title">ثبت نام</h2>
             <input name="username" type="text" placeholder="نام کاربری" class="input" required />
             <!-- <input type="text" placeholder="نوع خودرو: مثال اسکانیا" class="input" /> -->

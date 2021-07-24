@@ -23,7 +23,7 @@
                     <div class="custom-file">
                       <!-- class="custom-file-label"  -->
                       <label for="customFile">ویرایش عکس</label>
-                      <input type="file" class="custom-file-input" id="customFile" />
+                      <input type="file" name="picture" class="custom-file-input" id="customFile" />
                     </div>
                     <!-- <p class="text-secondary mb-1">Full Stack Developer</p>
                     <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
@@ -59,7 +59,7 @@
                     <h6 class="mb-0">تلفن همراه</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input type="text" class="form-control" name="phone" value="{{ request.user.profile.phone }}" />
+                    <input type="text" class="form-control" name="phone" value="{% if request.user.profile.phone %}{{ request.user.profile.phone }}{% else %}09...{% endif %}" />
                   </div>
                 </div>
                 <div class="row mb-3">
