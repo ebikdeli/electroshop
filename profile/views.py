@@ -83,6 +83,13 @@ def user_login(request):
             user_auth = user_auth_form.cleaned_data
             print(user_auth)
 # user = authenticate(request, username=user_auth['username_or_email_login'], password=user_auth['password'])
+            try:
+                user = User.objects.get(username=user_auth['username_or_email_login'], password=user_auth['password'])
+                print(user)
+            except User.DoesNotExist:
+                messages.add_message(request, messages.INFO, 'نام کاربری یا رمز عبور اشتباه است')
+                return redirect('profile:login_signup')
+
             user = User.objects.get(username=user_auth['username_or_email_login'], password=user_auth['password'])
             print(user)
 
